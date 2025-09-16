@@ -44,7 +44,7 @@ const Map = ({location}: MapLocationProps) => {
         coordinates={location.center as [number, number]}
       >
         <span className="map-marker">
-          <img alt="img" className="map-marker__icon" src="/src/assets/images/placemark.svg"/>
+          <img alt="img" className="map-marker__icon" src="/placemark.svg"/>
         </span>
       </YMapMarker>
     </YMap>

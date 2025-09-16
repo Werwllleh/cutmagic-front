@@ -1,7 +1,7 @@
-const SvgIcon = ({name,...props}:{name:string}) => {
+const SvgIcon = ({name}:{name:string}) => {
   return (
-    <svg className="icon" {...props}>
-      <use href={`/images/sprites.svg#${name}`}/>
+    <svg className="icon">
+      <use xlinkHref={`/images/sprite.svg#${name}`}></use>
     </svg>
   );
 };

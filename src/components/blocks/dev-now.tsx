@@ -13,10 +13,10 @@ const DevNow = () => {
           <span className="dev-block__alarm">Сайт в разработке</span>
           <div className="dev-block__contacts">
             <span className="dev-block__contacts--item">
-              <SvgIcon name={'vk'}/>
+              <SvgIcon name={'phone'}/>
             </span>
             <span className="dev-block__contacts--item">
-
+              <SvgIcon name={'map'}/>
             </span>
           </div>
         </div>
