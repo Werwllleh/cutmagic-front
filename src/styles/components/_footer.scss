@@ -1,0 +1,26 @@
+@use "../variables";
+@use "../breakpoints";
+
+.footer {
+  padding-block: 3rem;
+  background-color: variables.$accent;
+
+  &__body {}
+
+  &__row {
+    display: flex;
+    align-items: center;
+    gap: 0 .5rem;
+    font-size: 1.5rem;
+    color: #fff;
+    font-weight: 500;
+
+    &--text {
+    }
+
+    &--year {
+
+    }
+  }
+
+}
