@@ -10,10 +10,17 @@
   &__row {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 0 .5rem;
-    font-size: 1.5rem;
+    font-size: 1.7rem;
     color: #fff;
     font-weight: 500;
+    pointer-events: none;
+    user-select: none;
+
+    @include breakpoints.mobile-min {
+      font-size: 2rem;
+    }
 
     &--text {
     }

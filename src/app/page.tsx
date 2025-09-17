@@ -3,6 +3,7 @@ import Contacts from "@/components/blocks/contacts";
 import SvgIcon from "@/components/svg-icon";
 import React from "react";
 import DevNow from "@/components/blocks/dev-now";
+import Head from "next/head";
 
 export const metadata: Metadata = {
   title: "Парикмахерская Волшебные Ножницы",

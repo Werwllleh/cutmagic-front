@@ -1,4 +1,5 @@
 @use "../../variables";
+@use "../../breakpoints";
 
 .dev-block {
   display: block;
@@ -15,53 +16,94 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 2rem;
+    text-transform: uppercase;
 
     span {
       font-size: clamp(2rem, 3vw, 3rem);
     }
 
     h1 {
+      margin-top: 4rem;
       display: flex;
       flex-direction: column;
       font-weight: 600;
-      text-transform: uppercase;
       font-size: clamp(4rem, 7vw, 7rem);
+      color: variables.$colorPrimaryDark;
     }
 
     h2 {
       font-size: clamp(2rem, 3vw, 3rem);
       font-weight: 600;
+      color: variables.$colorPrimaryDark;
+    }
+
+    h3 {
+      font-size: clamp(3rem, 3vw, 6rem);
     }
   }
 
   &__alarm {
-    margin-top: 2rem;
+    margin-top: 4rem;
     display: block;
-    color: variables.$accent;
-    font-size: clamp(2rem, 3vw, 4rem);
+    font-size: clamp(2rem, 3vw, 3rem);
   }
 
   &__contacts {
-    margin-top: 3rem;
+    margin-top: 10rem;
     display: flex;
-    align-items: stretch;
-    justify-content: center;
-    gap: 2rem;
+    flex-direction: column;
+
+    &--text {
+      font-size: clamp(3rem, 3vw, 5rem);
+      font-weight: 600;
+    }
+
+    &--list {
+      margin-top: 2rem;
+      display: flex;
+      align-items: stretch;
+      justify-content: center;
+      gap: 1rem;
+
+      @include breakpoints.mobile-min {
+        gap: 2rem;
+      }
+    }
 
     &--item {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: variables.$borderRadius5;
-      background-color: variables.$accent;
-      width: 10rem;
-      height: 10rem;
 
-      .icon {
-        width: 100%;
-        height: 100%;
-        color: #004c9d;
+      a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 7rem;
+        height: 7rem;
+        padding: 1.5rem;
+        border-radius: 100%;
+        border: 2px solid variables.$accent;
+        overflow: hidden;
+        transition: background-color variables.$transition;
+
+        @include breakpoints.mobile-min {
+          width: 10rem;
+          height: 10rem;
+        }
+
+        .icon {
+          width: 100%;
+          height: 100%;
+          color: variables.$colorPrimaryDark;
+          stroke-width: 1px;
+        }
+
+        &:hover {
+
+          background-color: variables.$accent;
+
+          .icon {
+            color: variables.$white;
+          }
+        }
       }
     }
   }

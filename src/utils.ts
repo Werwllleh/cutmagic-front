@@ -1,10 +1,6 @@
-export const normalizePhone = (number:string) => {
+export const normalizePhone = (number:string):string => {
 
   const digitsOnly = number.replace(/\D/g, '');
-
-  if (!digitsOnly) {
-    return null;
-  }
 
   if (digitsOnly.length === 11) {
     if (digitsOnly.startsWith('8')) {
@@ -19,6 +15,6 @@ export const normalizePhone = (number:string) => {
     return '+7' + digitsOnly;
   }
 
-  return null;
+  return number;
 
 }
