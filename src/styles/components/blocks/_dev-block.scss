@@ -5,8 +5,7 @@
   display: block;
   text-align: center;
   height: 100%;
-  max-height: calc(100vh - 50%);
-  padding-block: 15rem;
+  padding-block: 10rem 5rem;
   font-family: variables.$ff-main;
 
   &__wrap {}

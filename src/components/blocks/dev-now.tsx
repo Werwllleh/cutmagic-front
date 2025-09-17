@@ -19,7 +19,7 @@ const DevNow = () => {
                         <ul className="dev-block__contacts--list">
                             <li className="dev-block__contacts--item">
                                 <a title="Позвонить"
-                                   href={normalizePhone(PHONE)}
+                                   href={`tel:${normalizePhone(PHONE)}`}
                                 >
                                     <SvgIcon name={'phone'}/>
                                 </a>
