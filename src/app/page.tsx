@@ -1,9 +1,5 @@
 import type {Metadata} from "next";
-import Contacts from "@/components/blocks/contacts";
-import SvgIcon from "@/components/svg-icon";
 import React from "react";
-import DevNow from "@/components/blocks/dev-now";
-import Head from "next/head";
 import MainContacts from "@/components/blocks/main-contacts";
 
 export const metadata: Metadata = {
