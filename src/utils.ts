@@ -20,7 +20,7 @@ export const normalizePhone = (number:string):string => {
 }
 
 export const ymReach = (event:string, options?:string): void => {
-  // @ts-ignore
+  // @ts-expect-error
   ym(Number(process.env.NEXT_PUBLIC_YMETRIKA),'reachGoal', event, options)
 }
 
