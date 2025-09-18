@@ -1,0 +1,147 @@
+@use "../../variables";
+@use "../../breakpoints";
+
+.main-contacts {
+
+  padding-block: 4rem;
+
+  &__container {
+
+    @include breakpoints.tablet {
+      padding-inline: 5rem;
+    }
+
+    @include breakpoints.desktop-normal {
+      padding-inline: 8rem;
+    }
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas: "phone"
+                          "location"
+                          "timing";
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+
+    @include breakpoints.mobile-normal {
+      grid-template-columns: 1fr 1fr;
+      grid-template-areas: "location location"
+                          "phone timing";
+    }
+
+    @include breakpoints.desktop-min {
+      grid-template-columns: .6fr 1fr .6fr;
+      grid-template-areas: none;
+      gap: 3.2rem;
+    }
+  }
+
+  &__item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: variables.$borderRadius15;
+    box-shadow: 7px 11px 50px 0 rgba(0, 0, 0, 0.1);
+    background: #fff;
+    padding-block: 2rem;
+    padding-inline: 1.8rem;
+
+    @include breakpoints.tablet {
+      padding-block: 2.5rem;
+      padding-inline: 3rem;
+    }
+
+    @include breakpoints.desktop-min {
+      min-width: 25rem;
+    }
+
+    &.phone {
+      grid-area: phone;
+
+      @include breakpoints.desktop-min {
+        grid-area: auto;
+      }
+
+      .main-contacts__item--text {
+        white-space: nowrap;
+      }
+    }
+
+    &.location {
+      grid-area: location;
+
+      @include breakpoints.desktop-min {
+        grid-area: auto;
+      }
+
+      box-shadow: 7px 11px 50px 0 rgba(254, 91, 20, 0.3);
+      background: linear-gradient(270deg, #fe5b14 0%, #fd9113 100%);
+
+      .main-contacts__item--icon {
+        .icon {
+          color: variables.$white;
+        }
+      }
+
+      .main-contacts__item--text,
+      .main-contacts__item--description {
+        color: variables.$white;
+      }
+    }
+
+    &.timing {
+      grid-area: timing;
+
+      @include breakpoints.desktop-min {
+        grid-area: auto;
+      }
+
+      .main-contacts__item--text {
+        white-space: nowrap;
+      }
+    }
+
+    &--icon {
+      .icon {
+        width: 4rem;
+        height: 4rem;
+        color: variables.$accent;
+      }
+    }
+
+    &--info {
+      text-align: center;
+    }
+
+    &--text {
+      margin-top: 1rem;
+      font-weight: 700;
+      font-size: 1.6rem;
+      max-width: 30rem;
+
+      @include breakpoints.tablet {
+        font-size: 2rem;
+      }
+    }
+
+    &--description {
+      margin-top: 1rem;
+      font-weight: 400;
+      font-size: 1.4rem;
+      color: rgba(51, 51, 51, 0.5);
+
+      @include breakpoints.tablet {
+        font-size: 1.6rem;
+      }
+    }
+
+    &--link {
+      position: absolute;
+      inset: 0;
+    }
+  }
+}

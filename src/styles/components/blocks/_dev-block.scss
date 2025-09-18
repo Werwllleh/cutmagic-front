@@ -10,51 +10,20 @@
 
   &__wrap {}
 
-  &__info {
+  &__contacts {
+    padding-block: 5rem;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    text-transform: uppercase;
-
-    span {
-      font-size: clamp(2rem, 3vw, 3rem);
-    }
-
-    h1 {
-      margin-top: 4rem;
-      display: flex;
-      flex-direction: column;
-      font-weight: 600;
-      font-size: clamp(4rem, 7vw, 7rem);
-      color: variables.$colorPrimaryDark;
-    }
-
-    h2 {
-      font-size: clamp(2rem, 3vw, 3rem);
-      font-weight: 600;
-      color: variables.$colorPrimaryDark;
-    }
-
-    h3 {
-      font-size: clamp(3rem, 3vw, 6rem);
-    }
-  }
-
-  &__alarm {
-    margin-top: 4rem;
-    display: block;
-    font-size: clamp(2rem, 3vw, 3rem);
-  }
-
-  &__contacts {
-    margin-top: 10rem;
-    display: flex;
-    flex-direction: column;
 
     &--text {
-      font-size: clamp(3rem, 3vw, 5rem);
+      font-size: 2.4rem;
       font-weight: 600;
+      text-align: center;
+
+      @include breakpoints.mobile-normal {
+        font-size: 4rem;
+      }
     }
 
     &--list {

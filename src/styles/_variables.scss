@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
-$ff-main: "Montserrat", sans-serif;
+$ff-main: "Nunito Sans", sans-serif;
 $transition: .3s ease-in-out;
 $transition2: .5s ease-in-out;
 $radius5: .5rem;
@@ -8,9 +8,9 @@ $radius20: 2rem;
 
 
 //colors
-$accent: #3f81c7;
-$gold: #ecba3d;
-$light: #fff2da;
+$accent: #fe5b14;
+$gold: #d5a838;
+$light: #fffcf6;
 $white: #ffffff;
 $black: #444;
 $grey-light: #eaeaea;
@@ -22,4 +22,29 @@ $colorSecondary: #f8f8f8;
 
 
 $borderRadius5: .5rem;
+$borderRadius10: 1rem;
+$borderRadius12: 1.2rem;
 $borderRadius15: 1.5rem;
+
+
+@mixin tilt-shaking-animation($duration: 0.3s, $timing: infinite) {
+  animation: tilt-shaking #{$duration} #{$timing};
+}
+
+@keyframes tilt-shaking {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(5deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  75% {
+    transform: rotate(-5deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}

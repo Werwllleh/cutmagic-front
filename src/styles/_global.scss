@@ -23,3 +23,34 @@
     color: variables.$accent;
   }
 }
+
+.anim-underline {
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: variables.$accent;
+    transform: scaleX(0);
+    transform-origin: right bottom;
+    transition: transform variables.$transition;
+  }
+
+  &.active,
+  &:hover {
+    &::before {
+      transform: scaleX(1);
+      transform-origin: left bottom;
+    }
+  }
+}
+
+.constant-tilt-shake {
+  //animation: variables.$tilt-shaking 0.3s infinite;
+}
+
+

@@ -1,0 +1,134 @@
+@use "../variables";
+@use "../breakpoints";
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  padding-block: 1.5rem;
+  pointer-events: all;
+  background-color: variables.$white;
+  transition: opacity variables.$transition, visibility variables.$transition, transform variables.$transition2;
+
+  &.hide {
+    pointer-events: none;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-15rem);
+  }
+
+  &__container {
+  }
+
+  &__body {
+  }
+
+  &__grid {
+    display: grid;
+    //grid-template-columns: auto 1fr auto;
+    grid-template-columns: auto 16.5rem;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0 1rem;
+
+    @include breakpoints.desktop-min {
+      grid-template-columns: auto auto;
+      gap: 0 5rem;
+    }
+  }
+
+  &__logo {
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0 .5rem;
+
+    &--img {
+      max-width: 3rem;
+
+      @include breakpoints.tablet {
+        max-width: 4rem;
+      }
+    }
+
+    &--text {
+      margin-top: 1rem;
+      display: flex;
+      flex-direction: column;
+
+      @include breakpoints.tablet {
+        margin-top: 2rem;
+      }
+
+      span {
+
+        &:nth-child(1) {
+          font-size: 1.5rem;
+          color: variables.$gold;
+
+          @include breakpoints.mobile-normal {
+            font-size: 1.7rem;
+          }
+
+          @include breakpoints.tablet {
+            font-size: 2.2rem;
+          }
+        }
+
+        &:nth-child(2) {
+          display: none;
+          font-size: 1.2rem;
+          text-transform: uppercase;
+          font-weight: 600;
+          color: variables.$accent;
+
+          @include breakpoints.mobile-normal {
+            display: block;
+            font-size: 1.3rem;
+          }
+
+          @include breakpoints.tablet {
+            font-size: 1.5rem;
+          }
+        }
+      }
+    }
+
+    &:hover {
+      .header__logo--img {
+        @include variables.tilt-shaking-animation();
+      }
+    }
+  }
+
+  &__nav {
+    display: none;
+
+    &--list {
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+      justify-content: center;
+    }
+
+    &--item {
+
+    }
+
+    &--link {
+      font-weight: 600;
+      font-size: 2rem;
+      line-height: 3.5;
+      text-align: center;
+      color: variables.$black;
+      position: relative;
+      max-width: max-content;
+      padding-block: 1rem;
+    }
+  }
+
+  &__button-record {
+    max-width: 20rem;
+  }
+}
