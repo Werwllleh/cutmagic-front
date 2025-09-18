@@ -18,3 +18,9 @@ export const normalizePhone = (number:string):string => {
   return number;
 
 }
+
+export const ymReach = (event:string, options?:string): void => {
+  // @ts-ignore
+  ym(Number(process.env.NEXT_PUBLIC_YMETRIKA),'reachGoal', event, options)
+}
+

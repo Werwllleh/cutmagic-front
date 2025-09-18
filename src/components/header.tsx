@@ -6,7 +6,7 @@ import Button from "@/components/button";
 import {BUTTON_SIZE, BUTTON_TYPE, MENU, PHONE, TELEGRAM_LINK, WHATSAPP_LINK} from "@/consts";
 import {usePathname} from "next/navigation";
 import CustomModal from "@/components/custom-modal";
-import {normalizePhone} from "@/utils";
+import {normalizePhone, ymReach} from "@/utils";
 import SvgIcon from "@/components/svg-icon";
 
 const Header = () => {
@@ -22,6 +22,11 @@ const Header = () => {
         headerElement?.classList.remove('hide');
 
     }, [])
+
+    const openModalRecord = () => {
+        ymReach('header-button')
+        setModalRecordIsOpen(true)
+    }
 
     return (
         <>
@@ -57,7 +62,7 @@ const Header = () => {
                             <Button cls="header__button-record"
                                     type={BUTTON_TYPE.PRIMARY}
                                     size={BUTTON_SIZE.LARGE}
-                                    onClick={() => setModalRecordIsOpen(true)}
+                                    onClick={openModalRecord}
                             >Онлайн запись
                             </Button>
                         </div>
