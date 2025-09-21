@@ -8,6 +8,7 @@ import YandexMetrica from "@/components/yandex-metrica";
 
 export default function RootLayout({children,}: Readonly<{ children: ReactNode; }>) {
 
+
   return (
     <html lang="ru">
     <body>

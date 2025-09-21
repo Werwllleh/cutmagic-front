@@ -1,6 +1,6 @@
 "use client"
 
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {usePathname, useSearchParams} from "next/navigation";
 import Script from "next/script";
 import {ymReach} from "@/utils";
@@ -12,6 +12,16 @@ const YandexMetrica = () => {
     const pathName = usePathname();
     const searchParams = useSearchParams();
 
+    const [devDomain, setDevDomain] = useState(false);
+
+
+    useEffect(() => {
+        if (typeof window !== 'undefined') {
+            setDevDomain(window.location.origin.includes('localhost'))
+        }
+    }, []);
+
+
     useEffect(() => {
         const params = searchParams.toString();
         const url = base + pathName + (params ? "?" + params : "");
@@ -20,7 +30,7 @@ const YandexMetrica = () => {
     }, [pathName, searchParams]);
 
     return (
-        <Script id="metrika">
+        !devDomain && <Script id="metrika">
             {`
         (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
         m[i].l=1*new Date();
