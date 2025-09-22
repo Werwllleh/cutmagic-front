@@ -58,7 +58,7 @@
       height: 100%;
       display: grid;
       grid-template-columns: 1fr;
-      grid-template-rows: 30rem auto;
+      grid-template-rows: 1fr .6fr;
       grid-template-areas: "images"
                             "text";
       align-items: stretch;
