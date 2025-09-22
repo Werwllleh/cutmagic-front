@@ -21,7 +21,7 @@ const MainMap = () => {
                             </div>
                             <div className="main-map__info--value">
                                 <span>Телефон</span>
-                                <a href={normalizePhone(PHONE)} target="_blank">{PHONE}</a>
+                                <a href={`tel:${normalizePhone(PHONE)}`}>{PHONE}</a>
                             </div>
                         </div>
                         <ButtonRecord text={'Записаться онлайн'} cls={"main-map__info--action"}/>
