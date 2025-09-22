@@ -118,6 +118,11 @@ body {
   font-weight: 400;
   font-style: normal;
   background-color: variables.$light;
+  background-image: url("/bg-vector.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-blend-mode: color-dodge;
+  background-position: center top;
 }
 
 span, p, a, h1, h2, h3, h4, h5, h6 {
