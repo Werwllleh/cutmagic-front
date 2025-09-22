@@ -2,6 +2,7 @@ import type {Metadata} from "next";
 import React from "react";
 import MainContacts from "@/components/blocks/main-contacts";
 import MainBanner from "@/components/blocks/main-banner";
+import MainMap from "@/components/blocks/main-map";
 
 export const metadata: Metadata = {
   title: "Парикмахерская Волшебные Ножницы",
@@ -21,8 +22,15 @@ export default function Home() {
                   </div>
               </div>
           </div>*/}
-          <MainBanner />
-          <MainContacts/>
+          <div className="main__banner">
+              <MainBanner />
+          </div>
+          <div className="main__contacts">
+              <MainContacts/>
+          </div>
+          <div className="main__map">
+              <MainMap />
+          </div>
       </div>
   );
 }

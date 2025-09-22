@@ -1,0 +1,105 @@
+@use "../../variables";
+@use "../../breakpoints";
+
+.main-map {
+
+  &__grid {
+    display: grid;
+    grid-template-columns: auto;
+    gap: 3rem 0;
+
+    @include breakpoints.tablet {
+      grid-template-columns: 1fr 1fr;
+      gap: 0 2rem;
+    }
+
+    @include breakpoints.desktop-min {
+      grid-template-columns: .8fr 1fr;
+      gap: 0 3rem;
+    }
+  }
+
+  &__info {
+
+    @include breakpoints.tablet {
+      margin-top: 6rem;
+    }
+
+    &--title {
+      font-weight: 700;
+      font-size: 3rem;
+      line-height: 1.2;
+
+      @include breakpoints.tablet {
+        font-size: 3.4rem;
+      }
+
+      @include breakpoints.desktop-normal {
+        font-size: 4.6rem;
+      }
+    }
+
+    &--values {
+      margin-top: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+
+      @include breakpoints.tablet {
+        margin-top: 4.8rem;
+        gap: 2rem;
+      }
+    }
+
+    &--value {
+      display: flex;
+      flex-direction: column;
+
+      span {
+        font-weight: 400;
+        font-size: 1.4rem;
+        line-height: 2;
+        color: rgba(51, 51, 51, 0.7);
+
+        @include breakpoints.tablet {
+          font-size: 1.6rem;
+        }
+      }
+
+      a {
+        font-weight: 700;
+        font-size: 2rem;
+        color: #333;
+
+        &:hover {
+          color: variables.$accent;
+        }
+
+        @include breakpoints.tablet {
+          font-size: 2.4rem;
+        }
+      }
+    }
+
+    &--action {
+      margin-top: 3rem;
+
+      @include breakpoints.tablet {
+        margin-top: 5rem;
+        max-width: 35rem;
+      }
+    }
+  }
+
+  &__map {
+    display: flex;
+    height: 40rem;
+    border-radius: variables.$borderRadius20;
+    overflow: hidden;
+    box-shadow: 0 0 2rem rgb(187 187 187 / 30%);
+
+    @include breakpoints.tablet {
+      height: 53rem;
+    }
+  }
+}
