@@ -58,7 +58,7 @@
       height: 100%;
       display: grid;
       grid-template-columns: 1fr;
-      grid-template-rows: 1fr .6fr;
+      grid-template-rows: auto auto;
       grid-template-areas: "images"
                             "text";
       align-items: stretch;
@@ -142,10 +142,14 @@
     &--images {
       position: relative;
       grid-area: images;
+      max-height: calc(100vh - 50%);
+      height: 100%;
 
       @include breakpoints.tablet {
         grid-area: auto;
         padding-left: 7rem;
+        max-height: none;
+        height: auto;
       }
 
       img {
