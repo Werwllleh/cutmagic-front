@@ -13,7 +13,7 @@ const MainMap = () => {
             <div className="container">
                 <div className="main-map__grid">
                     <div className="main-map__info">
-                        <h3 className="main-map__info--title">Как нас найти</h3>
+                        <h3 className="main-map__info--title h3">Как нас найти</h3>
                         <div className="main-map__info--values">
                             <div className="main-map__info--value">
                                 <span>Адрес</span>

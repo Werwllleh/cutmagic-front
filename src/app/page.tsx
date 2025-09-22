@@ -3,6 +3,7 @@ import React from "react";
 import MainContacts from "@/components/blocks/main-contacts";
 import MainBanner from "@/components/blocks/main-banner";
 import MainMap from "@/components/blocks/main-map";
+import MainBeautyPlace from "@/components/blocks/main-beauty-place";
 
 export const metadata: Metadata = {
   title: "Парикмахерская Волшебные Ножницы",
@@ -27,6 +28,9 @@ export default function Home() {
           </div>
           <div className="main__contacts">
               <MainContacts/>
+          </div>
+          <div className="main__beauty-place">
+              <MainBeautyPlace />
           </div>
           <div className="main__map">
               <MainMap />

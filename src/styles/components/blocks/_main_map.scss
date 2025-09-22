@@ -26,17 +26,7 @@
     }
 
     &--title {
-      font-weight: 700;
-      font-size: 3rem;
-      line-height: 1.2;
 
-      @include breakpoints.tablet {
-        font-size: 3.4rem;
-      }
-
-      @include breakpoints.desktop-normal {
-        font-size: 4.6rem;
-      }
     }
 
     &--values {

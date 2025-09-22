@@ -3,8 +3,8 @@
 
 /* Reset and base styles  */
 * {
-  padding: 0px;
-  margin: 0px;
+  padding: 0;
+  margin: 0;
   border: none;
 }
 
@@ -137,9 +137,6 @@ main {
   @include breakpoints.desktop-min {
     padding-inline: 3rem;
   }
-}
-
-.content {
 }
 
 button {

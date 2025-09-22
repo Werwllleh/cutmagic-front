@@ -24,6 +24,14 @@
     }
   }
 
+  &__beauty-place {
+    padding-block: 2rem;
+
+    @include breakpoints.tablet {
+      padding-block: 4rem;
+    }
+  }
+
   &__map {
     padding-block: 2rem;
 

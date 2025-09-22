@@ -1,0 +1,84 @@
+@use "../../variables";
+@use "../../breakpoints";
+
+
+.main-beauty-place {
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-content: center;
+    gap: 3rem 0;
+
+    @include breakpoints.mobile-normal {
+      grid-template-columns: 1fr 1fr;
+      gap: 0 2rem;
+    }
+
+    @include breakpoints.breakpoint(650) {
+      align-items: center;
+    }
+
+    @include breakpoints.tablet {
+      gap: 0 3rem;
+    }
+  }
+
+  &__image {
+    display: flex;
+    justify-content: center;
+
+    @include breakpoints.breakpoint(650) {
+      align-items: center;
+    }
+
+    img {
+      max-height: 40rem;
+      height: 100%;
+      border-radius: variables.$borderRadius20;
+      overflow: hidden;
+      object-fit: cover;
+      object-position: center;
+
+      @include breakpoints.breakpoint(650) {
+        max-height: 53.5rem;
+      }
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    //max-width: 45rem;
+    margin: 0 auto;
+
+    @include breakpoints.mobile-normal {
+      margin: auto;
+    }
+
+    &--title {
+    }
+
+    &--description {
+      margin-top: 2rem;
+      font-weight: 400;
+      font-size: 1.6rem;
+      line-height: 1.7;
+      color: rgba(51, 51, 51, 0.7);
+
+      @include breakpoints.mobile-normal {
+        font-size: 1.6rem;
+      }
+
+      @include breakpoints.tablet {
+        font-size: 1.8rem;
+        margin-top: 3rem;
+      }
+
+      span {
+        font-weight: 600;
+      }
+
+    }
+  }
+}
