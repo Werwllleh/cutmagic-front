@@ -1,6 +1,7 @@
 import type {Metadata} from "next";
 import React from "react";
 import MainContacts from "@/components/blocks/main-contacts";
+import MainBanner from "@/components/blocks/main-banner";
 
 export const metadata: Metadata = {
   title: "Парикмахерская Волшебные Ножницы",
@@ -11,7 +12,7 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
       <div className="page main">
-          <div className="main__opening-event">
+          {/*<div className="main__opening-event">
               <div className="container">
                   <div className="main__opening-event--wrap">
                       <h3>Мы открылись!</h3>
@@ -19,7 +20,8 @@ export default function Home() {
                       <h2>Парикмахерская</h2>
                   </div>
               </div>
-          </div>
+          </div>*/}
+          <MainBanner />
           <MainContacts/>
       </div>
   );

@@ -10,7 +10,7 @@ interface ButtonProps {
 
 const Button = ({type, size, cls, onClick, children} : ButtonProps) => {
     return (
-        <button className={`btn ${type} ${size} ${cls}`} onClick={onClick}>
+        <button className={`btn ${type} ${size} ${cls ? cls : ''}`} onClick={onClick}>
             {children}
         </button>
     );

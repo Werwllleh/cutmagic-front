@@ -133,6 +133,10 @@ main {
   margin: 0 auto;
   max-width: 147rem;
   padding-inline: 1.5rem;
+
+  @include breakpoints.desktop-min {
+    padding-inline: 3rem;
+  }
 }
 
 .content {

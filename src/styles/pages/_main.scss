@@ -2,6 +2,11 @@
 @use "../breakpoints";
 
 .main {
+  padding-block: 2rem;
+
+  @include breakpoints.tablet {
+    padding-block: 4rem;
+  }
 
   &__opening-event {
     margin-block: 4rem 2rem;
