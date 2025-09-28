@@ -12,38 +12,44 @@ const YandexMetrica = () => {
     const pathName = usePathname();
     const searchParams = useSearchParams();
 
-    const [devDomain, setDevDomain] = useState(false);
+    const [isDev, setIsDev] = useState(true);
 
 
     useEffect(() => {
-        if (typeof window !== 'undefined') {
-            setDevDomain(window.location.origin.includes('localhost'))
+        if (typeof window !== "undefined") {
+            setIsDev(window.location.hostname === "localhost");
         }
     }, []);
 
-
     useEffect(() => {
-        const params = searchParams.toString();
-        const url = base + pathName + (params ? "?" + params : "");
-
-        ymReach("hit", url)
+        if (typeof window !== "undefined" && window.ym) {
+            const params = searchParams.toString();
+            const url = base + pathName + (params ? "?" + params : "");
+            ymReach("hit", url);
+        }
     }, [pathName, searchParams]);
 
+    if (isDev) return null;
+
     return (
-        !devDomain && <Script id="metrika">
+        <Script id="yandex-metrika" strategy="afterInteractive">
             {`
-        (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-        m[i].l=1*new Date();
-        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
-        (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
- 
+        (function(m,e,t,r,i,k,a){
+          m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+          m[i].l=1*new Date();
+          for (var j = 0; j < document.scripts.length; j++) {
+            if (document.scripts[j].src === r) { return; }
+          }
+          k=e.createElement(t),a=e.getElementsByTagName(t)[0],
+          k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+        })(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
         ym(${Number(process.env.NEXT_PUBLIC_YMETRIKA)}, "init", {
           defer: true,
           clickmap:true,
           trackLinks:true,
           accurateTrackBounce:true
-        });    
+        });
       `}
         </Script>
     );

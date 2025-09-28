@@ -5,8 +5,8 @@ export const INSTAGRAM: string = 'instagram.com' as const;
 export const MAP_LINK = `https://api-maps.yandex.ru/v3/?apikey=${process.env.NEXT_PUBLIC_YKEY}&lang=ru_RU` as const;
 export const MAP_PLACE_LINK = "https://yandex.ru/maps/-/CLeBvK7a" as const;
 export const MAP_PLACE = {
-    center: [56.114561, 47.208602],
-    zoom: 18
+    center: [56.114587, 47.208568],
+    zoom: 19
 };
 
 export const TELEGRAM_LINK = "https://t.me/Hairdresser_Magic_Scissors" as const;

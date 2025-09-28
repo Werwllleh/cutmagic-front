@@ -19,7 +19,8 @@ export const normalizePhone = (number: string): string => {
 
 }
 
-export const ymReach = (event: string, options?: string): void => {
+/*export const ymReach = (event: string, options?: string): void => {
+
     if (typeof window === 'undefined' || window.location.origin.includes('localhost')) {
         return;
     }
@@ -33,4 +34,23 @@ export const ymReach = (event: string, options?: string): void => {
     if (typeof window.ym === 'function') {
         window.ym(ymCounterId, 'reachGoal', event, options);
     }
-}
+}*/
+
+export const ymReach = (event: string, options?: string) => {
+    if (typeof window === "undefined") return;
+
+    const ymId = Number(process.env.NEXT_PUBLIC_YMETRIKA);
+
+    if (window.ym) {
+        window.ym(ymId, 'reachGoal', event, options);
+    } else {
+        const interval = setInterval(() => {
+            if (window.ym) {
+                window.ym(ymId, 'reachGoal', event, options);
+                clearInterval(interval);
+            }
+        }, 300);
+
+        setTimeout(() => clearInterval(interval), 5000);
+    }
+};
