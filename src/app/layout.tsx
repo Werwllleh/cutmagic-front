@@ -10,6 +10,9 @@ export default function RootLayout({children,}: Readonly<{ children: ReactNode; 
 
   return (
     <html lang="ru">
+    <head>
+      <meta name="yandex-verification" content="55c067d38c5b6b11"/>
+    </head>
     <body>
     <Providers>
       <Header/>
