@@ -1,6 +1,6 @@
 "use client"
 
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import {usePathname, useSearchParams} from "next/navigation";
 import Script from "next/script";
 import {ymReach} from "@/utils";
