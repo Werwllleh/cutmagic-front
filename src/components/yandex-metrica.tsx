@@ -4,6 +4,7 @@ import React, {useEffect} from 'react';
 import {usePathname, useSearchParams} from "next/navigation";
 import Script from "next/script";
 import {ymReach} from "@/utils";
+import {YM_METHOD} from "@/consts";
 
 const base = "https://cutmagic.ru";
 
@@ -17,7 +18,7 @@ const YandexMetrica = () => {
         if (typeof window !== "undefined" && window.ym) {
             const params = searchParams.toString();
             const url = base + pathName + (params ? "?" + params : "");
-            ymReach("hit", url);
+            ymReach(YM_METHOD.HIT, url);
         }
 
     }, [pathName, searchParams]);

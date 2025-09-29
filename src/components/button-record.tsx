@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {normalizePhone, ymReach} from "@/utils";
-import {BUTTON_SIZE, BUTTON_TYPE, PHONE, TELEGRAM_LINK, WHATSAPP_LINK} from "@/consts";
+import {BUTTON_SIZE, BUTTON_TYPE, PHONE, TELEGRAM_LINK, WHATSAPP_LINK, YM_METHOD} from "@/consts";
 import SvgIcon from "@/components/svg-icon";
 import CustomModal from "@/components/custom-modal";
 import Button from "@/components/button";
@@ -10,7 +10,7 @@ const ButtonRecord = ({cls, text}: { text: string, cls?: string }) => {
     const [modalRecordIsOpen, setModalRecordIsOpen] = useState(false);
 
     const openModalRecord = () => {
-        ymReach('header-button')
+        ymReach(YM_METHOD.REACH_GOAL, 'record-button')
         setModalRecordIsOpen(true)
     }
 
