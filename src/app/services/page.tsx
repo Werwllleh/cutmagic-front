@@ -17,11 +17,35 @@ const Page = () => {
     // Получить все услуги
     const mensServices = mensCategory ? mensCategory.items : [];
 
-    console.log(mensServices);
+    // console.log(mensServices);
 
     return (
         <div className="page services">
-            services
+            <div className="container">
+                <div className="services__body">
+                    <h1 className="services__title h1">Услуги нашего салона</h1>
+                    <ul className="services__categories">
+                        <li className="services__category">
+                            Мужские стрижки
+                        </li>
+                        <li className="services__category">
+                            Женские стрижки
+                        </li>
+                        <li className="services__category">
+                            Окрашивание
+                        </li>
+                        <li className="services__category">
+                            Укладка
+                        </li>
+                        <li className="services__category">
+                            Химия
+                        </li>
+                        <li className="services__category">
+                            Детская стрижка
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
     );
 };

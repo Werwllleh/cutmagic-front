@@ -2,11 +2,7 @@
 @use "../breakpoints";
 
 .main {
-  padding-block: 2rem;
 
-  @include breakpoints.tablet {
-    padding-block: 4rem;
-  }
 
   &__banner {
     padding-block: 2rem;

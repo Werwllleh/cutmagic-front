@@ -1,1 +1,13 @@
+@use "../breakpoints";
+
 @use "main";
+@use "services";
+
+
+.page {
+  padding-block: 2rem;
+
+  @include breakpoints.tablet {
+    padding-block: 4rem;
+  }
+}

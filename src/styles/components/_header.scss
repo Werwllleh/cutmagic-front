@@ -32,7 +32,8 @@
     gap: 0 1rem;
 
     @include breakpoints.desktop-min {
-      grid-template-columns: auto auto;
+      //grid-template-columns: auto auto;
+      grid-template-columns: auto 1fr auto;
       gap: 0 5rem;
     }
   }
@@ -103,7 +104,7 @@
   }
 
   &__nav {
-    display: none;
+    //display: none;
 
     &--list {
       display: flex;
@@ -125,6 +126,10 @@
       position: relative;
       max-width: max-content;
       padding-block: 1rem;
+
+      &:hover {
+        color: variables.$accent;
+      }
     }
   }
 
