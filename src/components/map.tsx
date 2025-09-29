@@ -4,51 +4,68 @@ import {
   YMap,
   YMapLocationRequest,
 } from "@yandex/ymaps3-types/imperative/YMap";
-import React, {useRef} from "react";
-import {useMap} from "@/providers/map-provider";
-import Loader from "@/components/loader";
-import SvgIcon from "@/components/svg-icon";
+import { useDebouncedCallback } from "use-debounce";
+import React, { useMemo, useRef, useState } from "react";
+import { useMap } from "@/providers/map-provider";
+import type { Place } from "../../types/place";
+import { getBboxByCoordinates } from "./helpers/get-bbox-by-coordinates";
+import { usePageState } from "../../providers/page-provider";
+import Loading from "./loading";
+import MarkerWithPopup from "@/components/marker-with-popup";
 
-
-interface MapLocationProps {
-  // location: YMapLocationRequest;
-  location: {
-    center: number[],
-    zoom: number
-  }
+interface MapProps {
+  places: Place[];
 }
 
-
-const Map = ({location}: MapLocationProps) => {
-
+export const Map = ({ places }: MapProps) => {
   const mapRef = useRef<(YMap & { container: HTMLElement }) | null>(null);
+  const { selectedPlaceId, setBounds, selectPlace } = usePageState();
+  const startBounds = useMemo(
+      () =>
+          getBboxByCoordinates(
+              places.map((place) => [place.longitude, place.latitude])
+          ),
+      [places]
+  );
+  const [location] = useState<YMapLocationRequest>(
+      startBounds ? { bounds: startBounds } : { zoom: 0 }
+  );
+  const setBoundsDebounced = useDebouncedCallback(
+      (value) => setBounds(value),
+      500
+  );
+  const { reactifyApi } = useMap();
 
-  const {reactifyApi} = useMap();
-
-  if (!reactifyApi) return <Loader />;
+  if (!reactifyApi) return <Loading />;
 
   const {
     YMap,
-    YMapMarker,
+    YMapListener,
     YMapDefaultSchemeLayer,
     YMapDefaultFeaturesLayer,
   } = reactifyApi;
 
-
   return (
-    <YMap location={location} ref={mapRef}>
-      <YMapDefaultSchemeLayer />
-      <YMapDefaultFeaturesLayer />
-      <YMapMarker
-        zIndex={1}
-        coordinates={location.center as [number, number]}
-      >
-        <span className="map-marker">
-          <img alt="img" className="map-marker__icon" src="/placemark.svg"/>
-        </span>
-      </YMapMarker>
-    </YMap>
+      <YMap margin={[20, 20, 20, 20]} location={location} ref={mapRef}>
+        <YMapDefaultSchemeLayer />
+        <YMapDefaultFeaturesLayer />
+
+        <YMapListener
+            onUpdate={({ location }) => {
+              setBoundsDebounced(location.bounds);
+            }}
+        />
+
+        {places.map((place) => (
+            <MarkerWithPopup
+                key={place.id}
+                place={place}
+                mapRef={mapRef}
+                reactifyApi={reactifyApi}
+                selected={selectedPlaceId === place.id}
+                selectPlace={selectPlace}
+            />
+        ))}
+      </YMap>
   );
 };
-
-export default Map;

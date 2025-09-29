@@ -18,7 +18,7 @@ export default function RootLayout({children,}: Readonly<{ children: ReactNode; 
         <Providers>
             <Header/>
             <main>
-                <Suspense fallback={null}>
+            <Suspense fallback={null}>
                     {children}
                     <YandexMetrica/>
                 </Suspense>

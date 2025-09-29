@@ -2,10 +2,10 @@ export const PHONE: string = '+7 (900) 451-59-00' as const;
 export const VK: string = 'vk.ru' as const;
 export const INSTAGRAM: string = 'instagram.com' as const;
 
-export const MAP_LINK = `https://api-maps.yandex.ru/v3/?apikey=${process.env.NEXT_PUBLIC_YKEY}&lang=ru_RU` as const;
+export const MAP_KEY = `https://api-maps.yandex.ru/v3/?apikey=${process.env.NEXT_PUBLIC_YKEY}&lang=ru_RU` as const;
 export const MAP_PLACE_LINK = "https://yandex.ru/maps/-/CLeBvK7a" as const;
 export const MAP_PLACE = {
-    center: [56.114587, 47.208568],
+    center: [47.208568, 56.114587],
     zoom: 19
 };
 
