@@ -36,17 +36,17 @@ export const normalizePhone = (number: string): string => {
     }
 }*/
 
-export const ymReach = (event: string, options?: string) => {
+export const ymReach = (method: string, event: string, options?: string) => {
     if (typeof window === "undefined") return;
 
     const ymId = Number(process.env.NEXT_PUBLIC_YMETRIKA);
 
     if (window.ym) {
-        window.ym(ymId, 'reachGoal', event, options);
+        window.ym(ymId, method, event, options);
     } else {
         const interval = setInterval(() => {
             if (window.ym) {
-                window.ym(ymId, 'reachGoal', event, options);
+                window.ym(ymId, method, event, options);
                 clearInterval(interval);
             }
         }, 300);
