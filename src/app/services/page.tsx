@@ -1,5 +1,4 @@
 import React from 'react';
-import services from '../../../data/services.json';
 import type {Metadata} from "next";
 import ServicesCategoriesPage from "@/components/pages/services-categories-page";
 
@@ -10,15 +9,6 @@ export const metadata: Metadata = {
 };
 
 const Page = () => {
-
-  const data = services;
-
-  // Найти категорию "Мужские стрижки"
-  const mensCategory = data.services.find(cat => cat.category === "Мужские стрижки");
-  // Получить все услуги
-  const mensServices = mensCategory ? mensCategory.items : [];
-
-  // console.log(mensServices);
 
   return (
     <div className="page">
