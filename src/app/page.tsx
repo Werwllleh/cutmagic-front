@@ -13,8 +13,8 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-      <div className="page main">
-          {/*<div className="main__opening-event">
+    <div className="page main">
+      {/*<div className="main__opening-event">
               <div className="container">
                   <div className="main__opening-event--wrap">
                       <h3>Мы открылись!</h3>
@@ -23,18 +23,18 @@ export default function Home() {
                   </div>
               </div>
           </div>*/}
-          <div className="main__banner">
-              <MainBanner />
-          </div>
-          <div className="main__contacts">
-              <MainContacts/>
-          </div>
-          <div className="main__beauty-place">
-              <MainBeautyPlace />
-          </div>
-          <div className="main__map">
-              <MainMap />
-          </div>
+      <div className="main__banner">
+        <MainBanner/>
       </div>
+      <div className="main__contacts">
+        <MainContacts/>
+      </div>
+      <div className="main__beauty-place">
+        <MainBeautyPlace/>
+      </div>
+      <div className="main__map">
+        <MainMap/>
+      </div>
+    </div>
   );
 }

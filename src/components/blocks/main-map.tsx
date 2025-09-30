@@ -1,9 +1,11 @@
 "use client"
 import React from 'react';
-import {ADDRESS, MAP_KEY, MAP_PLACE_LINK, PHONE} from "@/consts";
+import {ADDRESS, MAP_PLACE_LINK, PHONE} from "@/consts";
 import ButtonRecord from "@/components/button-record";
 import {normalizePhone} from "@/utils";
+import CustomMap from "@/components/custom-map";
 import {MapProvider} from "@/providers/map-provider";
+
 
 const MainMap = () => {
 
@@ -26,12 +28,9 @@ const MainMap = () => {
                         <ButtonRecord text={'Записаться онлайн'} cls={"main-map__info--action"}/>
                     </div>
                     <div className="main-map__map">
-                        {/*<div ref={mapRef} style={{width: "100%", height: "100%"}}/>*/}
-                        <div style={{width: '600px', height: '400px'}}>
-                            <MapProvider apiUrl={MAP_KEY}>
-                                <Map places={[]} />
-                            </MapProvider>
-                        </div>
+                        <MapProvider>
+                            <CustomMap />
+                        </MapProvider>
                     </div>
                 </div>
             </div>

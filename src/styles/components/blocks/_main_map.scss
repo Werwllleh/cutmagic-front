@@ -82,11 +82,21 @@
   }
 
   &__map {
+    position: relative;
     display: flex;
     height: 40rem;
     border-radius: variables.$borderRadius20;
     overflow: hidden;
     box-shadow: 0 0 2rem rgb(187 187 187 / 30%);
+
+    .loader {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      margin: auto;
+    }
 
 
     @include breakpoints.tablet {

@@ -2,7 +2,7 @@
 import React from 'react';
 import {INSTAGRAM, MAP_LINK, MAP_PLACE, PHONE, VK} from "@/consts";
 import {normalizePhone} from "@/utils";
-import Map from "@/components/map";
+import Map from "@/components/custom-map";
 import {MapProvider} from "@/providers/map-provider";
 
 
