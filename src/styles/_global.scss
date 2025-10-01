@@ -1,18 +1,7 @@
 @use "variables";
 
-
-
-.map-marker {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 6rem;
-  height: auto;
-  transform: translate(-30px, -66px);
-
-  img {
-    object-fit: contain;
-  }
+.hidden {
+  display: none;
 }
 
 .anim-underline {

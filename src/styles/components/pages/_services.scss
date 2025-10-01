@@ -25,7 +25,7 @@
     display: block;
     box-shadow: 7px 11px 50px 0 rgba(0, 0, 0, 0.1);
     background: variables.$white;
-    padding: 4rem 3rem;
+    padding: 2rem 2rem;
     overflow: hidden;
     cursor: pointer;
     transition: box-shadow variables.$transition2;
@@ -47,6 +47,11 @@
 
     @include breakpoints.tablet {
       flex: 1 1 calc(50% - 1rem);
+      padding: 3rem 3rem;
+    }
+
+    @include breakpoints.desktop-semi {
+      padding: 4rem 3rem;
     }
 
     &.men {
@@ -135,8 +140,12 @@
 
     &--text {
       font-weight: 700;
-      font-size: 2.4rem;
+      font-size: 2.2rem;
       line-height: 2.3;
+
+      @include breakpoints.tablet {
+        font-size: 2.4rem;
+      }
     }
 
     &--link {
@@ -144,5 +153,9 @@
       inset: 0;
       z-index: 3;
     }
+  }
+
+  &__promo-banner {
+    margin-top: 5rem;
   }
 }

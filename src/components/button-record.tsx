@@ -5,13 +5,16 @@ import SvgIcon from "@/components/svg-icon";
 import CustomModal from "@/components/custom-modal";
 import Button from "@/components/button";
 
-const ButtonRecord = ({cls, text}: { text: string, cls?: string }) => {
+const ButtonRecord = ({cls, text, func}: { text: string, cls?: string, func?: () => void; }) => {
 
     const [modalRecordIsOpen, setModalRecordIsOpen] = useState(false);
 
     const openModalRecord = () => {
         ymReach(YM_METHOD.REACH_GOAL, 'record-button')
         setModalRecordIsOpen(true)
+        if (func) {
+            func();
+        }
     }
 
     return (

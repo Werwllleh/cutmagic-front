@@ -5,9 +5,9 @@
 
 
 .page {
-  padding-block: 2rem;
+  padding-block: 3rem 8rem;
 
   @include breakpoints.tablet {
-    padding-block: 4rem;
+    padding-block: 5rem 10rem;
   }
 }

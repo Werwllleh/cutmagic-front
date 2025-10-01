@@ -1,0 +1,42 @@
+@use "../variables";
+@use "../breakpoints";
+
+
+.custom-map {
+  position: relative;
+
+  &__marker {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 6rem;
+    height: auto;
+    transform: translate(-30px, -66px);
+
+    img {
+      object-fit: contain;
+    }
+  }
+
+  &__route {
+    position: absolute;
+    left: 2rem;
+    bottom: 3.5rem;
+    z-index: 1;
+    background-color: variables.$grey-light;
+    font-size: 1.4rem;
+    padding: .75rem 1.5rem;
+    color: variables.$black;
+    border-radius: variables.$borderRadius10;
+    opacity: .8;
+    transition: opacity variables.$transition;
+
+    @include breakpoints.tablet {
+      bottom: 2rem;
+    }
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}

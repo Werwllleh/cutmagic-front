@@ -12,6 +12,20 @@
     }
   }
 
+  &__promo {
+    padding-block: 4rem;
+
+    .promo-banner {
+      @include breakpoints.mobile-normal {
+        margin-inline: 4rem;
+      }
+    }
+
+    @include breakpoints.tablet {
+      padding-block: 6rem;
+    }
+  }
+
   &__contacts {
     padding-block: 2rem;
 

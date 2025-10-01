@@ -1,6 +1,6 @@
 "use client";
 
-import {MAP_PLACE, MAP_PLACE_MARKER} from "@/consts";
+import {MAP_PLACE, MAP_PLACE_COMPANY, MAP_PLACE_MARKER, MAP_PLACE_ROUTE} from "@/consts";
 import {YMap} from "@yandex/ymaps3-types/imperative/YMap";
 import {useRef} from "react";
 import {useMap} from "@/providers/map-provider";
@@ -14,7 +14,7 @@ const CustomMap = () => {
 
   const {reactifyApi} = useMap();
 
-  if (!reactifyApi) return <Loader />;
+  if (!reactifyApi) return <Loader/>;
 
   const {
     YMap,
@@ -24,7 +24,7 @@ const CustomMap = () => {
   } = reactifyApi;
 
   return (
-    <YMap location={MAP_PLACE} ref={mapRef}>
+    <YMap className="custom-map" location={MAP_PLACE} ref={mapRef}>
       <YMapDefaultSchemeLayer/>
       <YMapDefaultFeaturesLayer/>
       <YMapMarker
@@ -33,12 +33,13 @@ const CustomMap = () => {
       >
         <Link
           target="_blank"
-          href={"https://yandex.ru/maps/45/cheboksary/?ll=47.209502%2C56.114489&mode=poi&poi%5Bpoint%5D=47.208569%2C56.114585&poi%5Buri%5D=ymapsbm1%3A%2F%2Forg%3Foid%3D151100985099&utm_campaign=desktop&utm_medium=search&utm_source=maps&z=18.83"}
-          className="map-marker"
+          href={MAP_PLACE_COMPANY}
+          className="map-marker custom-map__marker"
         >
           <img src="/images/marker.png" alt="map marker"/>
         </Link>
       </YMapMarker>
+      <Link className="custom-map__route" href={MAP_PLACE_ROUTE} target="_blank">Как добраться?</Link>
     </YMap>
   );
 };
