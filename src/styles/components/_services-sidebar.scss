@@ -1,0 +1,32 @@
+@use "../variables";
+@use "../breakpoints";
+
+.services-sidebar {
+
+  &__body {}
+
+  &__list {
+    background-color: variables.$white;
+    border-radius: variables.$borderRadius10;
+    overflow: hidden;
+  }
+
+  &__item {}
+
+  &__link {
+    display: flex;
+    padding: 1.25rem 4rem;
+    font-size: 1.6rem;
+    color: variables.$black;
+
+    @include breakpoints.desktop-semi {
+      padding: 1.25rem 5rem;
+      font-size: 1.8rem;
+    }
+
+    &:hover,
+    &.active {
+      //color: variables.$white;
+    }
+  }
+}

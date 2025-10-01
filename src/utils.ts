@@ -19,23 +19,6 @@ export const normalizePhone = (number: string): string => {
 
 }
 
-/*export const ymReach = (event: string, options?: string): void => {
-
-    if (typeof window === 'undefined' || window.location.origin.includes('localhost')) {
-        return;
-    }
-
-    const ymCounterId = Number(process.env.NEXT_PUBLIC_YMETRIKA);
-    if (!ymCounterId || isNaN(ymCounterId)) {
-        console.warn('Yandex Metrika counter ID is not configured');
-        return;
-    }
-
-    if (typeof window.ym === 'function') {
-        window.ym(ymCounterId, 'reachGoal', event, options);
-    }
-}*/
-
 export const ymReach = (method: string, target: string, options?: string) => {
     if (typeof window === "undefined") return;
 
@@ -54,3 +37,31 @@ export const ymReach = (method: string, target: string, options?: string) => {
         setTimeout(() => clearInterval(interval), 5000);
     }
 };
+
+export function getScrollbarWidth() {
+
+    // Creating invisible container
+    const outer = document.createElement('div');
+
+    if (!outer) return;
+
+    outer.style.visibility = 'hidden';
+    outer.style.overflow = 'scroll'; // forcing scrollbar to appear
+    // @ts-expect-error its_ok
+    outer.style.msOverflowStyle = 'scrollbar'; // needed for WinJS apps
+    document.body.appendChild(outer);
+
+    // Creating inner element and placing it in the container
+    const inner = document.createElement('div');
+    outer.appendChild(inner);
+
+    // Calculating difference between container's full width and the child width
+    const scrollbarWidth = (outer.offsetWidth - inner.offsetWidth);
+
+    // Removing temporary elements from the DOM
+    // @ts-expect-error its_ok
+    outer.parentNode.removeChild(outer);
+
+    return scrollbarWidth;
+
+}

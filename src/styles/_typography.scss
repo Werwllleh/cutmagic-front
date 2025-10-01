@@ -1,6 +1,13 @@
 @use "variables";
 @use "breakpoints";
 
+.h2 {
+  font-weight: 600;
+  font-size: 4.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #000;
+}
 
 .h3 {
   font-weight: 700;

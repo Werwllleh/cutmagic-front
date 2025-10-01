@@ -1,0 +1,161 @@
+@use "../../variables";
+@use "../../breakpoints";
+
+.services {
+
+  &__body {
+  }
+
+  &__title {
+  }
+
+  &__categories {
+    margin-top: 5rem;
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+
+  &__category {
+    position: relative;
+    flex: 1 1 100%;
+    border-radius: variables.$borderRadius15;
+    display: block;
+    box-shadow: 7px 11px 50px 0 rgba(0, 0, 0, 0.1);
+    background: variables.$white;
+    padding: 2rem 2rem;
+    overflow: hidden;
+    cursor: pointer;
+    transition: box-shadow variables.$transition2;
+
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: variables.$accent;
+      opacity: .6;
+      transform: scaleX(0);
+      transform-origin: right bottom;
+      transition: transform variables.$transition2;
+      z-index: 0;
+    }
+
+    @include breakpoints.tablet {
+      flex: 1 1 calc(50% - 1rem);
+      padding: 3rem 3rem;
+    }
+
+    @include breakpoints.desktop-semi {
+      padding: 4rem 3rem;
+    }
+
+    &.men {
+      &::before {
+        background-color: #337AB7;
+      }
+    }
+
+    &.women {
+      &::before {
+        background-color: #ff2e9c;
+      }
+    }
+
+    &.coloring {
+      &::before {
+        background-color: #340ddf;
+      }
+    }
+
+    &.styling {
+      &::before {
+        background-color: #03d6bd;
+      }
+    }
+
+    &.chemistry {
+      &::before {
+        background-color: #dc0e4c;
+      }
+    }
+
+    &.kids {
+      &::before {
+        background-color: #37b733;
+      }
+    }
+
+    &:hover {
+      box-shadow: 7px 11px 50px 0 rgba(0, 0, 0, 0.25);
+
+      &::before {
+        transform: scaleX(1);
+        transform-origin: left bottom;
+      }
+
+      .services__category--text {
+        color: variables.$white;
+      }
+
+      .arrow {
+        transform: translateX(-90%);
+
+        .icon {
+          color: variables.$white;
+        }
+      }
+    }
+
+    .arrow {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      margin: auto 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 2.5rem;
+      height: 1.8rem;
+      transform: translateX(120%);
+      transition: transform variables.$transition;
+      z-index: 2;
+
+      .icon {
+        width: 100%;
+        height: 100%;
+        color: variables.$black;
+      }
+    }
+
+    &--body {
+      position: relative;
+      z-index: 1;
+    }
+
+    &--text {
+      font-weight: 700;
+      font-size: 2.2rem;
+      line-height: 2.3;
+
+      @include breakpoints.tablet {
+        font-size: 2.4rem;
+      }
+    }
+
+    &--link {
+      position: absolute;
+      inset: 0;
+      z-index: 3;
+    }
+  }
+
+  &__promo-banner {
+    margin-top: 5rem;
+  }
+}

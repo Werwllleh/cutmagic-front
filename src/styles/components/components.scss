@@ -1,5 +1,11 @@
 @use "./blocks/blocks";
+@use "./pages/pages";
 @use "header";
 @use "footer";
 @use "loader";
 @use "button";
+@use "custom-map";
+@use "services-sidebar";
+@use "burger";
+@use "promo-banner";
+@use "page-in-dev";
