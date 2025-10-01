@@ -1,9 +1,9 @@
 'use client';
 import React from 'react';
-import {INSTAGRAM, MAP_LINK, MAP_PLACE, PHONE, VK} from "@/consts";
+import {INSTAGRAM, MAP_PLACE, PHONE, VK} from "@/consts";
 import {normalizePhone} from "@/utils";
-import Map from "@/components/custom-map";
 import {MapProvider} from "@/providers/map-provider";
+import CustomMap from "@/components/custom-map";
 
 
 const Contacts = () => {
@@ -32,8 +32,8 @@ const Contacts = () => {
             </ul>*/}
           </div>
           <div className="contacts__map">
-            <MapProvider apiUrl={MAP_LINK}>
-              <Map location={MAP_PLACE}/>
+            <MapProvider>
+              <CustomMap />
             </MapProvider>
           </div>
         </div>
