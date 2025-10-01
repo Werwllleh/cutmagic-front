@@ -65,3 +65,16 @@ export function getScrollbarWidth() {
     return scrollbarWidth;
 
 }
+
+export const blockWrapper = (status: boolean) => {
+
+    const wrap = document.querySelector('html');
+
+    if (!wrap) return;
+
+    if (status) {
+        wrap.classList.add('block');
+    } else {
+        wrap.classList.remove('block');
+    }
+}

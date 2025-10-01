@@ -1,27 +1,12 @@
 "use client"
-import React, {RefObject, useEffect, useState} from 'react';
-import {MENU} from "@/consts";
-import Link from "next/link";
-import {usePathname} from "next/navigation";
-import ButtonRecord from "@/components/button-record";
+import React, {Dispatch, SetStateAction, useEffect} from 'react';
 
 interface burgerProps {
-  headerRef: RefObject<HTMLDivElement | null>;
+  mobileMenuIsActive: boolean;
+  setMobileMenuIsActive: Dispatch<SetStateAction<boolean>>;
 }
 
-const Burger = ({headerRef}: burgerProps) => {
-
-  const pathname = usePathname();
-
-  const [mobileMenuIsActive, setMobileMenuIsActive] = useState(false);
-  const [headerHeight, setHeaderHeight] = useState(0);
-
-
-  useEffect(() => {
-    if (headerRef.current) {
-      setHeaderHeight(headerRef.current.clientHeight);
-    }
-  }, [headerRef]);
+const Burger = ({mobileMenuIsActive, setMobileMenuIsActive}: burgerProps) => {
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
@@ -30,13 +15,6 @@ const Burger = ({headerRef}: burgerProps) => {
       if (window.innerWidth >= 1024 && mobileMenuIsActive) {
         setMobileMenuIsActive(false);
       }
-
-      if (mobileMenuIsActive) {
-        if (headerRef.current) {
-          setHeaderHeight(headerRef.current.clientHeight);
-        }
-      }
-
     };
 
     window.addEventListener('resize', handleResize);
@@ -47,13 +25,6 @@ const Burger = ({headerRef}: burgerProps) => {
   }, [mobileMenuIsActive]);
 
   const toggleMenuHandler = () => {
-
-    if (!mobileMenuIsActive) {
-      if (headerRef.current) {
-        setHeaderHeight(headerRef.current.clientHeight);
-      }
-    }
-
     setMobileMenuIsActive(!mobileMenuIsActive);
   }
 
@@ -67,32 +38,7 @@ const Burger = ({headerRef}: burgerProps) => {
           <span className="hamburger"></span>
         </label>
       </button>
-      <div style={{ maxHeight: `calc(100vh - ${headerHeight}px)` }} className={`mobile-menu ${mobileMenuIsActive ? 'active' : ''}`}>
-        <div className="mobile-menu__body">
-          <nav className="mobile-menu__nav">
-            {MENU.length && (
-              <ul className="mobile-menu__list">
-                {MENU.map(item => {
-                  return (
-                    <li key={item.PATH} className="mobile-menu__list--item">
-                      <Link
-                        onClick={() => setMobileMenuIsActive(false)}
-                        href={item.PATH}
-                        className={`mobile-menu__list--link ${pathname.includes(item.PATH) ? 'active' : ''}`}
-                      >
-                        {item.TEXT}
-                      </Link>
-                    </li>
-                  )
-                })}
-              </ul>
-            )}
-          </nav>
-          <div className="mobile-menu__record-button">
-            <ButtonRecord text={'Записаться'} func={() => setMobileMenuIsActive(false)} />
-          </div>
-        </div>
-      </div>
+
     </>
   );
 };
