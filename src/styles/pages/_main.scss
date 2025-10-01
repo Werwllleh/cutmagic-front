@@ -2,17 +2,27 @@
 @use "../breakpoints";
 
 .main {
-  padding-block: 2rem;
 
-  @include breakpoints.tablet {
-    padding-block: 4rem;
-  }
 
   &__banner {
     padding-block: 2rem;
 
     @include breakpoints.tablet {
       padding-block: 4rem;
+    }
+  }
+
+  &__promo {
+    padding-block: 4rem;
+
+    .promo-banner {
+      @include breakpoints.mobile-normal {
+        margin-inline: 4rem;
+      }
+    }
+
+    @include breakpoints.tablet {
+      padding-block: 6rem;
     }
   }
 

@@ -1,0 +1,149 @@
+@use "../variables";
+@use "../breakpoints";
+
+$s: 5px;
+
+.burger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  max-width: max-content;
+  width: $s*10;
+  height: $s*8.5;
+
+  &__wrapper {
+    cursor: pointer;
+    display: flex;
+    height: 100%;
+  }
+
+  &.active {
+    .burger__wrapper {
+
+      .hamburger {
+        background: transparent;
+
+        &:after, &:before {
+          transition: top 300ms 50ms ease,
+          transform 300ms 350ms ease;
+          top: 0;
+        }
+
+        &:before {
+          transform: rotate(45deg);
+        }
+
+        &:after {
+          transform: rotate(-45deg);
+        }
+      }
+    }
+  }
+
+  .hamburger {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: $s*8;
+    height: $s - 1;
+    position: relative;
+    background: variables.$black;
+    border-radius: variables.$radius5;
+    transition: background 6ms 150ms ease;
+    transform: translateY($s*4);
+
+    &:before, &:after {
+      transition: top 300ms 200ms ease,
+      transform 300ms 50ms ease;
+      position: absolute;
+      background: variables.$black;
+      border-radius: variables.$radius5;
+      width: $s*8;
+      height: $s - 1;
+      content: '';
+    }
+
+    &:before {
+      top: $s*-2;
+    }
+
+    &:after {
+      top: $s*2;
+    }
+  }
+
+}
+
+.mobile-menu {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 2;
+  margin: 0 auto;
+  width: 100%;
+  height: 45%;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: scale(0.65) translateY(45%);
+  border-radius: 100%;
+  transform-origin: center bottom;
+  //background-color: variables.$white;
+  background-color: #fffffff7;
+  overflow: hidden;
+  transition: transform variables.$transition2, opacity variables.$transition2, visibility variables.$transition2, border-radius variables.$transition2, height variables.$transition2;
+
+  &.active {
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+    transform: scale(1) translateY(0);
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
+  }
+
+  &__body {
+    padding: 2rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__nav {}
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+
+    &--item {}
+
+    &--link {
+      font-size: 3rem;
+      font-weight: 600;
+      color: variables.$black;
+
+      @include breakpoints.mobile-min {
+        font-size: 4rem;
+      }
+
+      &.active {
+        color: variables.$accent;
+      }
+    }
+  }
+
+  &__record-button {
+    margin-top: 8rem;
+
+    @include breakpoints.mobile-normal {
+      display: none;
+    }
+  }
+}

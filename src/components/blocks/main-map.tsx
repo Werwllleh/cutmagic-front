@@ -1,12 +1,13 @@
 "use client"
 import React from 'react';
-import {Placemark, Map, YMaps, GeolocationControl, TypeSelector} from "@iminside/react-yandex-maps";
-import {ADDRESS, MAP_PLACE, MAP_PLACE_LINK, PHONE} from "@/consts";
+import {ADDRESS, MAP_PLACE_LINK, PHONE} from "@/consts";
 import ButtonRecord from "@/components/button-record";
 import {normalizePhone} from "@/utils";
+import CustomMap from "@/components/custom-map";
+import {MapProvider} from "@/providers/map-provider";
+
 
 const MainMap = () => {
-
 
     return (
         <div className="main-map">
@@ -27,21 +28,9 @@ const MainMap = () => {
                         <ButtonRecord text={'Записаться онлайн'} cls={"main-map__info--action"}/>
                     </div>
                     <div className="main-map__map">
-                        <YMaps query={{
-                            lang: 'ru_RU',
-                            apikey: process.env.NEXT_PUBLIC_YKEY,
-                            ns: "use-load-option",
-                            load: "package.full"
-                        }}>
-                            <Map defaultState={{...MAP_PLACE, controls: []}} height={'100%'} width={'100%'}>
-                                <Placemark geometry={MAP_PLACE.center} options={{
-                                    iconImageSize: [10, 10],
-                                    preset: "islands#orangeBarberIcon",
-                                }} />
-                                <TypeSelector />
-                                <GeolocationControl options={{ float: "left" }} />
-                            </Map>
-                        </YMaps>
+                        <MapProvider>
+                            <CustomMap />
+                        </MapProvider>
                     </div>
                 </div>
             </div>

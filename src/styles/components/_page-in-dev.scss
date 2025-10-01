@@ -1,0 +1,58 @@
+@use "../variables";
+@use "../breakpoints";
+
+.page-in-dev {
+  flex: 1;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+
+  &__body {
+    flex: 1;
+    position: relative;
+    z-index: 1;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-block: clamp(3rem, 4vw, 6rem);
+  }
+
+  &__title {
+    font-size: clamp(4rem, 6vw, 14rem);
+    color: variables.$white;
+    font-weight: 600;
+    text-align: center;
+    white-space: nowrap;
+  }
+
+  &__bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #00000059;
+    }
+
+    &--image {
+      object-fit: cover;
+      object-position: center;
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
