@@ -131,13 +131,16 @@
   }
 
   &__notes {
-    grid-area-areas: notes;
-    position: sticky;
+    grid-area: notes;
     top: 12rem;
     max-height: max-content;
     background-color: variables.$white;
     border-radius: variables.$borderRadius10;
     padding: 2rem;
+
+    @include breakpoints.desktop-semi {
+      position: sticky;
+    }
 
     h6 {
       font-size: 1.4rem;
@@ -179,19 +182,22 @@
 
   &__promo-banner {
     grid-area: promo-banner;
-    margin-top: 5rem;
+
+    @include breakpoints.desktop-semi {
+      margin-top: 5rem;
+    }
 
     .promo-banner {
 
       &__body {
 
-
-        @include breakpoints.tablet {
-          align-items: center;
-          grid-template-columns: auto auto;
-          grid-template-areas: "info value"
-                          "button-record value";
-          gap: 2rem 4rem;
+        @include breakpoints.desktop-min {
+          align-items: flex-start;
+          grid-template-columns: auto auto auto;
+          grid-template-areas: "info info value"
+                          "description description value"
+                          "button-record button-record button-record";
+          gap: 1rem 2rem;
         }
       }
     }

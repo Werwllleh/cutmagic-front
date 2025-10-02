@@ -12,9 +12,8 @@ const PromoBanner = () => {
 
     if (isToastActive) return;
 
-    toast(<div>Распространяется на услуги мужских, женских и&nbsp;детских стрижек. На услуги укладки, окрашивания и&nbsp;
-      химии скидка&nbsp;5%</div>, {
-      duration: 4000,
+    toast(<div>Распространяется на услуги мужских, женских и&nbsp;детских стрижек. На услуги укладки, окрашивания и&nbsp;химии скидка&nbsp;5%</div>, {
+      duration: 6000,
       position: 'bottom-center',
       style: {
         fontSize: '1.4rem',
@@ -30,16 +29,17 @@ const PromoBanner = () => {
   useEffect(() => {
     setTimeout(() => {
       setIsToastActive(false);
-    }, 4200);
+    }, 6200);
   }, [isToastActive]);
 
   return (
     <div className="promo-banner">
       <div className="promo-banner__body">
         <div className="promo-banner__info">
-          <p>Назови промокод <span className="promo-banner__info--promocode">Кудряшка</span> и&nbsp;получи скидку <span className="promo-banner__note" onClick={notify}>!</span></p>
-          <span>Акция действует ежедневно!</span>
+          <p>Назови промокод <span className="promo-banner__info--promocode">Кудряшка</span> и&nbsp;получи скидку&nbsp;<span
+            className="promo-banner__note" onClick={notify}>!</span></p>
         </div>
+        <span className="promo-banner__description">Акция действует ежедневно!</span>
         <div className="promo-banner__value">
           10%
         </div>
