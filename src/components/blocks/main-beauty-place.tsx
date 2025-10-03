@@ -5,7 +5,7 @@ const MainBeautyPlace = () => {
         <div className="main-beauty-place">
             <div className="container">
                 <div className="main-beauty-place__grid">
-                    <div className="main-beauty-place__image">
+                    <div className="main-beauty-place__media">
                         <img src="/images/women-hair.webp" alt=""/>
                     </div>
                     <div className="main-beauty-place__info">
@@ -13,7 +13,19 @@ const MainBeautyPlace = () => {
                             Ваше место для&nbsp;красоты
                         </h3>
                         <p className="main-beauty-place__info--description">
-                            Парикмахерская <span>Волшебные ножницы</span> — это место, где оживают образы и рождаются улыбки. Здесь создаются яркие цвета, воздушные локоны и безупречные стрижки — с любовью и вниманием к каждой детали. Это дружная семья мастеров, которые встретят вас с теплом, выслушают, поймут — и сделают всё, чтобы вы вышли отсюда ещё красивее, увереннее и светлее.
+                            Парикмахерская <span>&laquo;Волшебные Ножницы&raquo;</span> в&nbsp;Чебоксарах&nbsp;&mdash; это
+                            место, где оживают образы и&nbsp;рождаются улыбки.
+                            Наши мастера создают яркие цвета, воздушные локоны и&nbsp;безупречные
+                            стрижки&nbsp;&mdash; с&nbsp;любовью, профессионализмом и&nbsp;вниманием к&nbsp;каждой
+                            детали.
+                            <br/>
+                            Салон, где&nbsp;дружная команда парикмахеров встречает каждого гостя с&nbsp;теплом,
+                            выслушивает пожелания и&nbsp;находит идеальное решение именно для вас.
+                            <br/>
+                            Приходите в&nbsp;парикмахерскую <span>&laquo;Волшебные Ножницы&raquo;</span>&nbsp;&mdash; и&nbsp;убедитесь,
+                            почему нас выбирают жители Чебоксар и&nbsp;гости города. Вы&nbsp;выйдете отсюда
+                            не&nbsp;только красивее, но&nbsp;и&nbsp;увереннее, светлее и&nbsp;с&nbsp;отличным
+                            настроением!
                         </p>
                     </div>
                 </div>

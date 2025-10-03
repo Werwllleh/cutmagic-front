@@ -13,7 +13,7 @@ const Footer = () => {
                     <div className="footer__nav"></div>
                     <div className="footer__info">
                         <div className="footer__info--value">
-                            <a href={`tel:${normalizePhone(PHONE)}`}>
+                            <a aria-label="парикмахерская телефон" href={`tel:${normalizePhone(PHONE)}`}>
                                 <SvgIcon name={"phone2"}/>
                                 {PHONE}
                             </a>

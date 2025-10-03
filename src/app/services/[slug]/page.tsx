@@ -14,7 +14,7 @@ export async function generateMetadata({params,}: {
   return {
     title: serviceCategory?.title || '',
     description: serviceCategory?.description || '',
-    keywords: serviceCategory?.keywords || "парикмахерская, волшебные ножницы, стрижка, окрашивание, укладка, салон красоты, детские стрижки",
+    keywords: serviceCategory?.keywords || "парикмахерская, волшебные ножницы, стрижка, окрашивание, укладка, салон красоты, детские стрижки, Чебоксары",
   };
 }
 

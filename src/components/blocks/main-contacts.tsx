@@ -20,7 +20,7 @@ const MainContacts = () => {
                                 Запись и информация
                             </p>
                         </div>
-                        <a href={`tel:${normalizePhone(PHONE)}`} className="main-contacts__item--link"/>
+                        <a aria-label="парикмахерская телефон" href={`tel:${normalizePhone(PHONE)}`} className="main-contacts__item--link"/>
                     </li>
                     <li className="main-contacts__item location">
                     <span className="main-contacts__item--icon">

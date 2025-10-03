@@ -18,11 +18,11 @@ const MainMap = () => {
                         <div className="main-map__info--values">
                             <div className="main-map__info--value">
                                 <span>Адрес</span>
-                                <a href={MAP_PLACE_LINK} target="_blank" dangerouslySetInnerHTML={{ __html: ADDRESS }} />
+                                <a aria-label="парикмахерская чебоксары" href={MAP_PLACE_LINK} target="_blank" dangerouslySetInnerHTML={{ __html: ADDRESS }} />
                             </div>
                             <div className="main-map__info--value">
                                 <span>Телефон</span>
-                                <a href={`tel:${normalizePhone(PHONE)}`}>{PHONE}</a>
+                                <a aria-label="парикмахерская телефон" href={`tel:${normalizePhone(PHONE)}`}>{PHONE}</a>
                             </div>
                         </div>
                         <ButtonRecord text={'Записаться онлайн'} cls={"main-map__info--action"}/>

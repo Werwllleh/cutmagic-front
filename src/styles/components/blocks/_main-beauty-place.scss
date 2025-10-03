@@ -24,7 +24,7 @@
     }
   }
 
-  &__image {
+  &__media {
     display: flex;
     justify-content: center;
 
@@ -32,7 +32,7 @@
       align-items: center;
     }
 
-    img {
+    video, img {
       max-height: 40rem;
       height: 100%;
       border-radius: variables.$borderRadius20;
