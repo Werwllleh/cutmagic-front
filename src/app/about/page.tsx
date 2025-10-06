@@ -1,6 +1,6 @@
 import React from 'react';
 import type {Metadata} from "next";
-import PageInDev from "@/components/page-in-dev";
+import AboutPage from "@/components/pages/about-page";
 
 export const metadata: Metadata = {
   title: "О нас | Парикмахерская Волшебные Ножницы в Чебоксарах",
@@ -10,7 +10,9 @@ export const metadata: Metadata = {
 
 const Page = () => {
     return (
-      <PageInDev />
+      <div className="page page-about">
+        <AboutPage />
+      </div>
     );
 };
 

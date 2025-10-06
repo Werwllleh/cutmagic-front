@@ -1,0 +1,116 @@
+@use "../../variables";
+@use "../../breakpoints";
+
+.page-about {
+
+  .about {
+
+    &__body {}
+
+    &__main {
+      display: grid;
+      grid-template-areas: "title title video"
+                            "address description video";
+      grid-template-columns: auto 1fr auto;
+      grid-template-rows: auto 1fr;
+      gap: 6rem 3rem;
+
+      &--title {
+        grid-area: title;
+      }
+
+      &--address {
+        grid-area: address;
+      }
+
+      &--description {
+        grid-area: description;
+      }
+
+      &--video {
+        grid-area: video;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        video {
+          max-width: 45rem;
+          max-height: 50rem;
+          object-fit: cover;
+          border-radius: variables.$borderRadius15;
+          overflow: hidden;
+        }
+      }
+    }
+
+    &__title {}
+
+    &__address {
+
+      & > h5 {
+        font-weight: 600;
+        font-size: 2rem;
+        color: variables.$black;
+      }
+
+      &--values {
+        margin-top: 2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+      }
+
+      &--value {
+
+        a {
+          display: block;
+          font-weight: 700;
+          font-size: 2.4rem;
+          color: variables.$black;
+          max-width: 40rem;
+          line-height: 1.35;
+        }
+
+        span {
+          display: block;
+          font-weight: 400;
+          font-size: 1.4rem;
+          color: variables.$black;
+          opacity: .7;
+          line-height: 2;
+        }
+      }
+
+      &--record-button {
+        margin-top: 2rem;
+        max-width: 30rem;
+      }
+
+    }
+
+    &__description {
+      max-width: 60rem;
+
+      p {
+        font-weight: 400;
+        font-size: 1.8rem;
+        line-height: 1.7;
+      }
+    }
+
+    &__map {
+      margin-top: 7rem;
+      position: relative;
+      display: flex;
+      height: 55rem;
+      border-radius: variables.$borderRadius20;
+      overflow: hidden;
+      box-shadow: 0 0 2rem rgb(187 187 187 / 30%);
+    }
+
+    &__banner {
+      margin-top: 5rem;
+    }
+
+  }
+}
