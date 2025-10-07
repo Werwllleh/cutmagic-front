@@ -9,11 +9,29 @@
 
     &__main {
       display: grid;
-      grid-template-areas: "title title video"
+      grid-template-areas: "title"
+                            "description"
+                            "address";
+      grid-template-columns: 100%;
+      gap: 4rem;
+
+      @include breakpoints.breakpoint(650) {
+        grid-template-areas: "title video"
+                            "description video"
+                            "description address";
+        grid-template-columns: auto auto;
+        grid-template-rows: auto auto auto;
+        gap: 3rem;
+      }
+
+      @include breakpoints.desktop-normal {
+        grid-template-areas: "title title title"
                             "address description video";
-      grid-template-columns: auto 1fr auto;
-      grid-template-rows: auto 1fr;
-      gap: 6rem 3rem;
+        grid-template-columns: auto auto auto;
+        grid-template-rows: auto 1fr;
+
+        gap: 6rem 3rem;
+      }
 
       &--title {
         grid-area: title;
@@ -28,17 +46,31 @@
       }
 
       &--video {
+        display: none;
         grid-area: video;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        width: 100%;
+        height: auto;
+        overflow: hidden;
+
+        @include breakpoints.breakpoint(650) {
+          display: block;
+        }
 
         video {
-          max-width: 45rem;
-          max-height: 50rem;
+          width: 100%;
+          height: 100%;
           object-fit: cover;
           border-radius: variables.$borderRadius15;
           overflow: hidden;
+          margin-bottom: auto;
+
+          @include breakpoints.tablet {
+            max-height: calc(100vh - 18rem);
+          }
+
+          @include breakpoints.desktop-normal {
+            max-height: calc(100vh - 30rem);
+          }
         }
       }
     }
@@ -47,17 +79,30 @@
 
     &__address {
 
+      @include breakpoints.breakpoint(650) {
+        max-width: 35rem;
+      }
+
       & > h5 {
         font-weight: 600;
-        font-size: 2rem;
+        font-size: 1.8rem;
         color: variables.$black;
+
+        @include breakpoints.desktop-normal {
+          font-size: 2rem;
+        }
       }
 
       &--values {
-        margin-top: 2rem;
+        margin-top: 1rem;
         display: flex;
         flex-direction: column;
-        gap: 2rem;
+        gap: 1rem;
+
+        @include breakpoints.desktop-normal {
+          margin-top: 2rem;
+          gap: 2rem;
+        }
       }
 
       &--value {
@@ -65,10 +110,13 @@
         a {
           display: block;
           font-weight: 700;
-          font-size: 2.4rem;
+          font-size: 2rem;
           color: variables.$black;
-          max-width: 40rem;
           line-height: 1.35;
+
+          @include breakpoints.desktop-normal {
+            font-size: 2.4rem;
+          }
         }
 
         span {
@@ -91,25 +139,160 @@
     &__description {
       max-width: 60rem;
 
-      p {
+      p, ul {
         font-weight: 400;
-        font-size: 1.8rem;
-        line-height: 1.7;
+        font-size: 1.6rem;
+        line-height: 1.55;
+
+        @include breakpoints.desktop-semi {
+          font-size: 1.8rem;
+        }
+      }
+
+      p + p, ul + p, p + ul {
+        margin-top: 1rem;
+      }
+
+      ul {
+
+        li {
+          position: relative;
+          padding-left: 1.5rem;
+
+          &:before {
+            content: '';
+            position: absolute;
+            top: 1.05rem;
+            left: 0;
+            width: .6rem;
+            height: .6rem;
+            border-radius: 100%;
+            background-color: variables.$accent;
+          }
+        }
+
+        li + li {
+          margin-top: .5rem;
+        }
       }
     }
 
     &__map {
-      margin-top: 7rem;
+      margin-block: 5rem;
       position: relative;
       display: flex;
-      height: 55rem;
+      height: 30rem;
       border-radius: variables.$borderRadius20;
       overflow: hidden;
       box-shadow: 0 0 2rem rgb(187 187 187 / 30%);
+
+      @include breakpoints.desktop-normal {
+        height: 55rem;
+        margin-block: 7rem;
+      }
     }
 
     &__banner {
-      margin-top: 5rem;
+      margin-block: 5rem;
+
+      @include breakpoints.desktop-normal {
+        margin-block: 10rem;
+      }
+    }
+
+    &__services {
+      margin-block: 3rem;
+
+      .swiper {
+        padding-block: 2rem;
+        margin-inline: -1rem;
+        padding-inline: 1rem;
+        overflow-x: clip;
+
+        .swiper-wrapper {
+          align-items: stretch;
+        }
+
+        .swiper-slide {
+          flex: 0 0 calc(33% - 20px);
+          width: auto;
+          height: auto;
+
+          &:not(:last-child) {
+            margin-right: 2rem;
+          }
+
+          @include breakpoints.tablet {
+            flex: 0 0 calc(25% - 20px);
+          }
+
+          @include breakpoints.desktop-normal {
+            flex: 1 1 calc(16% - 20px);
+          }
+        }
+      }
+
+      &--slide {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+
+        &:hover {
+          .image {
+            img {
+              transform: scale(1.05);
+            }
+          }
+        }
+
+        .image {
+          position: relative;
+          width: 100%;
+          height: 100%;
+          aspect-ratio: 1;
+
+          a {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 100%;
+            z-index: 1;
+          }
+
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            border-radius: 100%;
+            transition: transform variables.$transition;
+          }
+
+          &:hover {
+
+          }
+        }
+
+        .category {
+          margin-top: 2rem;
+          text-align: center;
+          font-size: 1.6rem;
+          color: variables.$black;
+          font-weight: 600;
+
+          @include breakpoints.desktop-normal {
+            font-size: 2rem;
+          }
+        }
+
+        .button {
+          margin-top: 2rem;
+          color: inherit;
+          transition: background-color variables.$transition, border-color variables.$transition, color variables.$transition;
+        }
+
+      }
     }
 
   }

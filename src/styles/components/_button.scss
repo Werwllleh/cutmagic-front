@@ -10,20 +10,14 @@
   white-space: nowrap;
   line-height: 1;
 
-  &.primary {
-    font-weight: 600;
-    color: variables.$white;
-    background-color: variables.$accent;
-  }
-
   &.large {
     border-radius: variables.$borderRadius10;
-    font-size: 1.6rem;
+    font-size: 1.5rem;
     padding: 1.2rem 2.2rem;
 
     @include breakpoints.tablet {
       border-radius: variables.$borderRadius15;
-      font-size: 2rem;
+      font-size: 1.8rem;
       padding: 1.4rem 3rem;
     }
   }
@@ -38,5 +32,22 @@
     border-radius: variables.$borderRadius15;
     font-size: 1.4rem;
     padding: .5rem 1rem;
+  }
+
+  &.primary {
+    font-weight: 600;
+    color: variables.$white;
+    background-color: variables.$accent;
+  }
+
+  &.secondary {
+    border-radius: variables.$borderRadius10 !important;
+    border: 1px solid variables.$black;
+
+    &:hover {
+      color: variables.$white;
+      background-color: variables.$accent;
+      border-color: variables.$white;
+    }
   }
 }

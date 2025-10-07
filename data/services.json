@@ -892,32 +892,38 @@
     {
       "key": "men",
       "name": "Мужские стрижки",
-      "link": "/men"
+      "link": "/men",
+      "image": "men.webp"
     },
     {
       "key": "women",
       "name": "Женские стрижки",
-      "link": "/women"
+      "link": "/women",
+      "image": "women.webp"
     },
     {
       "key": "coloring",
       "name": "Окрашивание",
-      "link": "/coloring"
+      "link": "/coloring",
+      "image": "coloring.webp"
     },
     {
       "key": "styling",
       "name": "Укладка",
-      "link": "/styling"
+      "link": "/styling",
+      "image": "styling.webp"
     },
     {
       "key": "chemistry",
       "name": "Химия",
-      "link": "/chemistry"
+      "link": "/chemistry",
+      "image": "chemistry.webp"
     },
     {
       "key": "kids",
       "name": "Детская стрижка",
-      "link": "/kids"
+      "link": "/kids",
+      "image": "kids.webp"
     }
   ]
 }

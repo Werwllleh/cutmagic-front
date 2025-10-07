@@ -6,8 +6,20 @@ import {ADDRESS, MAP_PLACE_COMPANY, PHONE} from "@/consts";
 import CustomMap from "@/components/custom-map";
 import {MapProvider} from "@/providers/map-provider";
 import PromoBanner from "@/components/promo-banner";
+import servicesData from "../../../data/services.json";
+import {Swiper, SwiperSlide} from "swiper/react";
+import {Navigation, Pagination} from "swiper/modules";
+
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import Link from "next/link";
 
 const AboutPage = () => {
+
+  const services = servicesData.detail_pages;
+
+
   return (
     <div className="about">
       <div className="container">
@@ -35,20 +47,26 @@ const AboutPage = () => {
             <div className="about__main--description">
               <div className="about__description">
                 <p>
-                  Парикмахерская <span>&laquo;Волшебные Ножницы&raquo;</span> в&nbsp;Чебоксарах&nbsp;&mdash; это
-                  место, где оживают образы и&nbsp;рождаются улыбки.
-                  Наши мастера создают яркие цвета, воздушные локоны и&nbsp;безупречные
-                  стрижки&nbsp;&mdash; с&nbsp;любовью, профессионализмом и&nbsp;вниманием к&nbsp;каждой
-                  детали.
-                  <br/>
-                  Салон, где&nbsp;дружная команда парикмахеров встречает каждого гостя с&nbsp;теплом,
-                  выслушивает пожелания и&nbsp;находит идеальное решение именно для вас.
-                  <br/>
-                  Приходите
-                  в&nbsp;парикмахерскую <span>&laquo;Волшебные Ножницы&raquo;</span>&nbsp;&mdash; и&nbsp;убедитесь,
-                  почему нас выбирают жители Чебоксар и&nbsp;гости города. Вы&nbsp;выйдете отсюда
-                  не&nbsp;только красивее, но&nbsp;и&nbsp;увереннее, светлее и&nbsp;с&nbsp;отличным
-                  настроением!
+                  Добро пожаловать в&nbsp;парикмахерскую <b>&laquo;Волшебные Ножницы&raquo;</b>&nbsp;&mdash; уютное место в&nbsp;Чебоксарах, где вас встречают с&nbsp;улыбкой и&nbsp;делают всё, чтобы вы&nbsp;почувствовали себя прекрасно.
+                </p>
+                <p>
+                  Мы&nbsp;верим, что красивая прическа&nbsp;&mdash; это не&nbsp;просто внешний образ, а&nbsp;способ подчеркнуть характер, настроение и&nbsp;внутреннюю гармонию. Наши мастера умеют слушать, чувствовать стиль и&nbsp;подбирать именно&nbsp;то, что подойдёт вам идеально.
+                </p>
+                <p>В&nbsp;нашем салоне вы&nbsp;можете:</p>
+                <ul>
+                  <li>обновить стрижку или кардинально изменить образ;</li>
+                  <li>окрасить волосы в&nbsp;модные оттенки или вернуть им&nbsp;естественный блеск;</li>
+                  <li>сделать уход, восстановление или укладку;</li>
+                  <li>подготовиться к&nbsp;важному событию&nbsp;&mdash; будь&nbsp;то свадьба, выпускной или просто особенный день.</li>
+                </ul>
+                <p>
+                  Мы&nbsp;используем только проверенные профессиональные средства и&nbsp;современные техники, чтобы ваши волосы были здоровыми и&nbsp;красивыми.
+                </p>
+                <p>
+                  <b>&laquo;Волшебные Ножницы&raquo;</b>&nbsp;— это не&nbsp;просто парикмахерская в&nbsp;Чебоксарах. Это место, где&nbsp;вы&nbsp;отдыхаете, вдохновляетесь и&nbsp;уходите с&nbsp;отличным настроением.
+                </p>
+                <p>
+                Приходите&nbsp;&mdash; и&nbsp;убедитесь сами, что чудеса бывают не&nbsp;только в&nbsp;сказках!
                 </p>
               </div>
             </div>
@@ -68,6 +86,35 @@ const AboutPage = () => {
           <div className="about__banner">
             <PromoBanner />
           </div>
+          {!!services.length && (
+            <div className="about__services">
+              <Swiper
+                modules={[Navigation, Pagination]}
+                slidesPerView={"auto"}
+                // spaceBetween={20}
+              >
+                {services.map((service) => {
+
+                  return (
+                    <SwiperSlide key={service.key}>
+                      <div className="about__services--slide">
+                        <div className="image">
+                          <img src={`/images/services/${service.image}`} alt=""/>
+                          <Link href={"/services" + service.link} />
+                        </div>
+                        <Link className="category" href={"/services" + service.link}>
+                          {service.name}
+                        </Link>
+                        <Link href={"/services" + service.link} className="btn secondary large button">
+                          Смотреть цены
+                        </Link>
+                      </div>
+                    </SwiperSlide>
+                  )
+                })}
+              </Swiper>
+            </div>
+          )}
         </div>
       </div>
     </div>

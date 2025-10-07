@@ -6,12 +6,15 @@ export const metadata: Metadata = {
   title: "Специалисты | Парикмахерская Волшебные Ножницы",
   description: "",
   keywords: "парикмахерская, стрижка, окрашивание, укладка, мужские стрижки, женские стрижки, детский парикмахер, барбер, красота, прическа, волосы, парикмахерские услуги, салон красоты, мастер парикмахер",
+  alternates: {
+    canonical: "https://cutmagic.ru/specialists",
+  },
 };
 
 const Page = () => {
-    return (
-      <PageInDev/>
-    );
+  return (
+    <PageInDev/>
+  );
 };
 
 export default Page;
