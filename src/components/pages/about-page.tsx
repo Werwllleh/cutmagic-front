@@ -7,13 +7,13 @@ import CustomMap from "@/components/custom-map";
 import {MapProvider} from "@/providers/map-provider";
 import PromoBanner from "@/components/promo-banner";
 import servicesData from "../../../data/services.json";
-import {Swiper, SwiperSlide} from "swiper/react";
-import {Navigation, Pagination} from "swiper/modules";
+
 
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import Link from "next/link";
+import ServicesItems from "@/components/services-items";
 
 const AboutPage = () => {
 
@@ -88,31 +88,7 @@ const AboutPage = () => {
           </div>
           {!!services.length && (
             <div className="about__services">
-              <Swiper
-                modules={[Navigation, Pagination]}
-                slidesPerView={"auto"}
-                // spaceBetween={20}
-              >
-                {services.map((service) => {
-
-                  return (
-                    <SwiperSlide key={service.key}>
-                      <div className="about__services--slide">
-                        <div className="image">
-                          <img src={`/images/services/${service.image}`} alt=""/>
-                          <Link href={"/services" + service.link} />
-                        </div>
-                        <Link className="category" href={"/services" + service.link}>
-                          {service.name}
-                        </Link>
-                        <Link href={"/services" + service.link} className="btn secondary large button">
-                          Смотреть цены
-                        </Link>
-                      </div>
-                    </SwiperSlide>
-                  )
-                })}
-              </Swiper>
+              <ServicesItems type="swiper" />
             </div>
           )}
         </div>

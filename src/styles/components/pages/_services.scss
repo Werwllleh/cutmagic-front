@@ -9,6 +9,14 @@
   &__title {
   }
 
+  &__list {
+    margin-block: 2rem;
+
+    @include breakpoints.tablet {
+      margin-block: 4rem;
+    }
+  }
+
   &__categories {
     margin-top: 5rem;
     display: flex;
@@ -156,6 +164,10 @@
   }
 
   &__promo-banner {
-    margin-top: 5rem;
+    margin-top: 2rem;
+
+    @include breakpoints.tablet {
+      margin-block: 5rem;
+    }
   }
 }

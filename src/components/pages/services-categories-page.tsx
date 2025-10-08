@@ -5,6 +5,7 @@ import SvgIcon from "@/components/svg-icon";
 import Link from "next/link";
 import services from "../../../data/services.json";
 import PromoBanner from "@/components/promo-banner";
+import ServicesItems from "@/components/services-items";
 
 const ServicesCategoriesPage = () => {
   return (
@@ -12,7 +13,7 @@ const ServicesCategoriesPage = () => {
       <div className="container">
         <div className="services__body">
           <h1 className="services__title h3">Услуги нашего салона</h1>
-          {services.detail_pages.length ? (
+          {/*{services.detail_pages.length ? (
             <ul className="services__categories">
               {services.detail_pages.map((page) => (
                 <li key={page.key} className={`services__category ${page.key}`}>
@@ -28,7 +29,10 @@ const ServicesCategoriesPage = () => {
                 </li>
               ))}
             </ul>
-          ) : null}
+          ) : null}*/}
+          <div className="services__list">
+            <ServicesItems type="swiper" />
+          </div>
           <div className="services__promo-banner">
             <PromoBanner />
           </div>

@@ -15,6 +15,9 @@ export async function generateMetadata({params,}: {
     title: serviceCategory?.title || '',
     description: serviceCategory?.description || '',
     keywords: serviceCategory?.keywords || "парикмахерская, волшебные ножницы, стрижка, окрашивание, укладка, салон красоты, детские стрижки, Чебоксары",
+    alternates: {
+      canonical: `https://cutmagic.ru/services/${slug}`,
+    },
   };
 }
 
