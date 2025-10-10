@@ -2,11 +2,11 @@
 
 import React, {useEffect, useRef, useState} from 'react';
 import Link from "next/link";
-import {MENU} from "@/consts";
+import {MENU} from "@/app/(frontend)/consts";
 import {usePathname} from "next/navigation";
 import ButtonRecord from "@/components/button-record";
 import Burger from "@/components/burger";
-import {blockWrapper} from "@/utils";
+import {blockWrapper} from "@/app/(frontend)/utils";
 
 const Header = () => {
 

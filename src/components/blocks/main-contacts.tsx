@@ -1,7 +1,7 @@
 import React from 'react';
 import SvgIcon from "@/components/svg-icon";
-import {ADDRESS, MAP_PLACE_LINK, PHONE} from "@/consts";
-import {normalizePhone} from "@/utils";
+import {ADDRESS, MAP_PLACE_LINK, PHONE} from "@/app/(frontend)/consts";
+import {normalizePhone} from "@/app/(frontend)/utils";
 
 const MainContacts = () => {
     return (

@@ -20,7 +20,8 @@
     ],
     "paths": {
       "@/*": ["./src/*"],
-      "ymaps3": ["./node_modules/@yandex/ymaps3-types"]
+      "ymaps3": ["./node_modules/@yandex/ymaps3-types"],
+      "@payload-config": ["./src/payload.config.ts"]
     },
     "types": ["node"],
     "typeRoots": ["./types", "./node_modules/@types", "./node_modules/@yandex/ymaps3-types"]

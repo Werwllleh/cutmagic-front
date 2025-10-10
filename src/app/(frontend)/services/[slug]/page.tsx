@@ -1,5 +1,5 @@
 import React from 'react';
-import services from "../../../../data/services.json";
+import services from "../../../../../data/services.json";
 import ServiceCategoryPage from "@/components/pages/service-category-page";
 import type {Metadata} from "next";
 

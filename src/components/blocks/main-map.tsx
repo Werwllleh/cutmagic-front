@@ -1,8 +1,8 @@
 "use client"
 import React from 'react';
-import {ADDRESS, MAP_PLACE_LINK, PHONE} from "@/consts";
+import {ADDRESS, MAP_PLACE_LINK, PHONE} from "@/app/(frontend)/consts";
 import ButtonRecord from "@/components/button-record";
-import {normalizePhone} from "@/utils";
+import {normalizePhone} from "@/app/(frontend)/utils";
 import CustomMap from "@/components/custom-map";
 import {MapProvider} from "@/providers/map-provider";
 

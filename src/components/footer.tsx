@@ -1,7 +1,7 @@
 import React from 'react';
 import dayjs from "dayjs";
-import {normalizePhone} from "@/utils";
-import {PHONE} from "@/consts";
+import {normalizePhone} from "@/app/(frontend)/utils";
+import {PHONE} from "@/app/(frontend)/consts";
 import SvgIcon from "@/components/svg-icon";
 
 const Footer = () => {

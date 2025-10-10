@@ -1,5 +1,5 @@
 import "@/styles/styles.scss";
-import Providers from "@/app/providers";
+import Providers from "@/app/(frontend)/providers";
 import React, {ReactNode, Suspense} from "react";
 import Footer from "@/components/footer";
 import Header from "@/components/header";

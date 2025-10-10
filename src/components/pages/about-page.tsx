@@ -1,8 +1,8 @@
 "use client";
 import React from 'react';
 import ButtonRecord from "@/components/button-record";
-import {normalizePhone} from "@/utils";
-import {ADDRESS, MAP_PLACE_COMPANY, PHONE} from "@/consts";
+import {normalizePhone} from "@/app/(frontend)/utils";
+import {ADDRESS, MAP_PLACE_COMPANY, PHONE} from "@/app/(frontend)/consts";
 import CustomMap from "@/components/custom-map";
 import {MapProvider} from "@/providers/map-provider";
 import PromoBanner from "@/components/promo-banner";
