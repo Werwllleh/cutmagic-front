@@ -84,8 +84,12 @@ export interface Config {
   db: {
     defaultIDType: number;
   };
-  globals: {};
-  globalsSelect: {};
+  globals: {
+    'main-seo-block': MainSeoBlock;
+  };
+  globalsSelect: {
+    'main-seo-block': MainSeoBlockSelect<false> | MainSeoBlockSelect<true>;
+  };
   locale: null;
   user: User & {
     collection: 'users';
@@ -286,6 +290,28 @@ export interface PayloadMigrationsSelect<T extends boolean = true> {
   batch?: T;
   updatedAt?: T;
   createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "main-seo-block".
+ */
+export interface MainSeoBlock {
+  id: number;
+  text: string;
+  image?: (number | null) | Media;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "main-seo-block_select".
+ */
+export interface MainSeoBlockSelect<T extends boolean = true> {
+  text?: T;
+  image?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

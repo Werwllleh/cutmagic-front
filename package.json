@@ -4,9 +4,9 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
+    "dev": "next dev -p 8686 --turbopack",
     "build": "next build --turbopack",
-    "start": "next start",
+    "start": "next start -p 8686",
     "lint": "eslint"
   },
   "dependencies": {
@@ -36,6 +36,7 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "@yandex/ymaps3-types": "^1.0.17618403",
+    "cross-env": "^10.1.0",
     "eslint": "^9",
     "eslint-config-next": "15.5.3",
     "sass": "^1.92.1",

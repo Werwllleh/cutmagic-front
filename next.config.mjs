@@ -4,6 +4,9 @@ import withPayload from "@payloadcms/next/withPayload";
 const nextConfig = {
   experimental: {
     reactCompiler: false,
+    turbopack: {
+      resolveExtensions: ['.mdx', '.tsx', '.ts', '.jsx', '.js', '.mjs', '.json'],
+    },
   },
 };
 
