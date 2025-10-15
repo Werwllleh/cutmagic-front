@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
-import {normalizePhone, ymReach} from "@/app/(frontend)/utils";
-import {BUTTON_SIZE, BUTTON_TYPE, PHONE, TELEGRAM_LINK, WHATSAPP_LINK, YM_METHOD} from "@/app/(frontend)/consts";
+import {normalizePhone, ymReach} from "@/utils";
+import {BUTTON_SIZE, BUTTON_TYPE, PHONE, TELEGRAM_LINK, WHATSAPP_LINK, YM_METHOD} from "@/consts";
 import SvgIcon from "@/components/svg-icon";
 import CustomModal from "@/components/custom-modal";
 import Button from "@/components/button";

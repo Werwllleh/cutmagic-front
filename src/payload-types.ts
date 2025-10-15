@@ -86,9 +86,11 @@ export interface Config {
   };
   globals: {
     'main-seo-block': MainSeoBlock;
+    'about-company': AboutCompany;
   };
   globalsSelect: {
     'main-seo-block': MainSeoBlockSelect<false> | MainSeoBlockSelect<true>;
+    'about-company': AboutCompanySelect<false> | AboutCompanySelect<true>;
   };
   locale: null;
   user: User & {
@@ -297,8 +299,66 @@ export interface PayloadMigrationsSelect<T extends boolean = true> {
  */
 export interface MainSeoBlock {
   id: number;
-  text: string;
+  show?: boolean | null;
+  text: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
   image?: (number | null) | Media;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "about-company".
+ */
+export interface AboutCompany {
+  id: number;
+  show?: boolean | null;
+  text: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  poster: number | Media;
+  video: number | Media;
+  contactType?:
+    | {
+        type?: ('phone' | 'address' | 'timing') | null;
+        value: string;
+        link?: string | null;
+        description?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  socials?:
+    | {
+        type?: ('telegram' | 'whatsapp') | null;
+        link?: string | null;
+        id?: string | null;
+      }[]
+    | null;
   updatedAt?: string | null;
   createdAt?: string | null;
 }
@@ -307,8 +367,38 @@ export interface MainSeoBlock {
  * via the `definition` "main-seo-block_select".
  */
 export interface MainSeoBlockSelect<T extends boolean = true> {
+  show?: T;
   text?: T;
   image?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "about-company_select".
+ */
+export interface AboutCompanySelect<T extends boolean = true> {
+  show?: T;
+  text?: T;
+  poster?: T;
+  video?: T;
+  contactType?:
+    | T
+    | {
+        type?: T;
+        value?: T;
+        link?: T;
+        description?: T;
+        id?: T;
+      };
+  socials?:
+    | T
+    | {
+        type?: T;
+        link?: T;
+        id?: T;
+      };
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;

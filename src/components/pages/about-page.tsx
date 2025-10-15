@@ -1,8 +1,8 @@
 "use client";
-import React from 'react';
+import React, {useEffect} from 'react';
 import ButtonRecord from "@/components/button-record";
-import {normalizePhone} from "@/app/(frontend)/utils";
-import {ADDRESS, MAP_PLACE_COMPANY, PHONE} from "@/app/(frontend)/consts";
+import {normalizePhone} from "@/utils";
+import {ADDRESS, MAP_PLACE_COMPANY, PHONE} from "@/consts";
 import CustomMap from "@/components/custom-map";
 import {MapProvider} from "@/providers/map-provider";
 import PromoBanner from "@/components/promo-banner";
@@ -12,10 +12,17 @@ import servicesData from "../../../data/services.json";
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import Link from "next/link";
+
 import ServicesItems from "@/components/services-items";
+import {useContent} from "@/hooks/useContent";
 
 const AboutPage = () => {
+
+  const {data: companyData, isLoading, isError} = useContent('globals', 'about-company');
+
+  useEffect(() => {
+    console.log(companyData)
+  }, [companyData]);
 
   const services = servicesData.detail_pages;
 

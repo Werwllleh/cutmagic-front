@@ -1,38 +1,54 @@
-import React from 'react';
-import dayjs from "dayjs";
-import {normalizePhone} from "@/app/(frontend)/utils";
-import {PHONE} from "@/app/(frontend)/consts";
+"use client"
+import React, {useEffect, useState} from 'react';
+import {normalizePhone} from "@/utils";
 import SvgIcon from "@/components/svg-icon";
+import {useContent} from "@/hooks/useContent";
+import {ContactTypeObject} from "@/types";
 
 const Footer = () => {
-    return (
-        <footer className="footer">
-            <div className="container">
-                <div className="footer__body">
-                    <div className="footer__logo"></div>
-                    <div className="footer__nav"></div>
-                    <div className="footer__info">
-                        <div className="footer__info--value">
-                            <a aria-label="парикмахерская телефон" href={`tel:${normalizePhone(PHONE)}`}>
-                                <SvgIcon name={"phone2"}/>
-                                {PHONE}
-                            </a>
-                        </div>
-                        <div className="footer__info--value">
-                            <span>
-                                <SvgIcon name={"clock"}/>
-                                9:00 - 19:00
-                            </span>
-                        </div>
-                    </div>
-                    {/*<div className="footer__row">
-            <span className="footer__row--text">© Волшебные Ножницы</span>
-            <span className="footer__row--year">{dayjs().year()}</span>
-          </div>*/}
-                </div>
-            </div>
-        </footer>
-    );
+
+  const {data: companyData, isLoading, isError} = useContent('globals', 'about-company');
+
+  const [footerInfo, setFooterInfo] = useState<{
+    phone?: ContactTypeObject
+    timing?: ContactTypeObject
+  }>({})
+
+  useEffect(() => {
+    setFooterInfo({
+      phone: companyData?.contactType.find((i: ContactTypeObject) => i.type === 'phone'),
+      timing: companyData?.contactType.find((i: ContactTypeObject) => i.type === 'timing'),
+    })
+  }, [companyData]);
+
+  return (
+    <footer className="footer">
+      <div className="container">
+        <div className="footer__body">
+          <div className="footer__logo"></div>
+          <div className="footer__nav"></div>
+          <div className="footer__info">
+            {footerInfo.phone && Object.entries(footerInfo.phone) && (
+              <div className="footer__info--value">
+                <a aria-label="парикмахерская телефон" href={`tel:${normalizePhone(footerInfo.phone?.value)}`}>
+                  <SvgIcon name={"phone2"}/>
+                  {footerInfo.phone?.value}
+                </a>
+              </div>
+            )}
+            {footerInfo.timing && Object.entries(footerInfo.timing) && (
+              <div className="footer__info--value">
+                <span>
+                    <SvgIcon name={"clock"}/>
+                  {footerInfo.timing?.value}
+                </span>
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
 };
 
 export default Footer;

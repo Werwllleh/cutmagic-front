@@ -7,9 +7,15 @@ export const MainSeoBlock: GlobalConfig = {
   },
   fields: [
     {
+      name: 'show',
+      type: 'checkbox',
+      label: 'Показать на сайте',
+      defaultValue: false,
+    },
+    {
       name: 'text',
       label: 'Описание для SEO блока на главной',
-      type: 'textarea',
+      type: 'richText',
       required: true,
     },
     {

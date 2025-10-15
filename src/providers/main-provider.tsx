@@ -9,14 +9,14 @@ import {ConfigProvider} from "antd";
 import {theme} from "@/styles/theme";
 
 
-const Providers: FC<PropsWithChildren> = ({ children }) => {
+const MainProvider: FC<PropsWithChildren> = ({ children }) => {
 
   const [client] = useState(new QueryClient({
     defaultOptions: {
       queries: {
-        // staleTime: 5 * 60 * 1000,
-        // refetchOnMount: false,
-        // refetchOnWindowFocus: false,
+        staleTime: 5 * 60 * 1000,
+        refetchOnMount: false,
+        refetchOnWindowFocus: false,
       }
     }
   }));
@@ -39,4 +39,4 @@ const Providers: FC<PropsWithChildren> = ({ children }) => {
   );
 };
 
-export default Providers;
+export default MainProvider;

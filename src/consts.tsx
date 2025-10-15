@@ -1,4 +1,5 @@
 
+export const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL;
 
 export const PHONE: string = '+7 (900) 451-59-00' as const;
 export const VK: string = 'vk.ru' as const;
@@ -20,7 +21,7 @@ export const MAP_PLACE: {
 export const MAP_PLACE_MARKER: [number, number] = [47.208570, 56.114584]
 
 export const TELEGRAM_LINK = "https://t.me/Hairdresser_Magic_Scissors" as const;
-export const WHATSAPP_LINK = "https://wtsp.cc/79004515900" as const;
+export const WHATSAPP_LINK = "https://wa.me/79004515900?text=%D0%94%D0%BE%D0%B1%D1%80%D1%8B%D0%B9%20%D0%B4%D0%B5%D0%BD%D1%8C!%20%F0%9F%91%8B%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D1%8C%D1%81%D1%8F%20%D0%BD%D0%B0" as const;
 export const ADDRESS = "г.&nbsp;Чебоксары, ул.&nbsp;Академика В.Н.Челомея,&nbsp;12";
 
 export const BUTTON_TYPE = {

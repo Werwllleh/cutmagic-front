@@ -10,7 +10,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import ButtonRecord from "@/components/button-record";
 import Link from "next/link";
-import {BUTTON_SIZE, BUTTON_TYPE, MENU} from "@/app/(frontend)/consts";
+import {BUTTON_SIZE, BUTTON_TYPE, MENU} from "@/consts";
 
 const MainBanner = () => {
 

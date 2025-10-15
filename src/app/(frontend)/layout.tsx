@@ -1,5 +1,5 @@
 import "@/styles/styles.scss";
-import Providers from "@/app/(frontend)/providers";
+import MainProvider from "@/providers/main-provider";
 import React, {ReactNode, Suspense} from "react";
 import Footer from "@/components/footer";
 import Header from "@/components/header";
@@ -40,7 +40,7 @@ export default function RootLayout({children,}: Readonly<{ children: ReactNode; 
       />
     </head>
     <body>
-    <Providers>
+    <MainProvider>
       <Header/>
       <main>
       <Suspense fallback={null}>
@@ -49,7 +49,7 @@ export default function RootLayout({children,}: Readonly<{ children: ReactNode; 
         </Suspense>
       </main>
       <Footer/>
-    </Providers>
+    </MainProvider>
     </body>
     </html>
   );

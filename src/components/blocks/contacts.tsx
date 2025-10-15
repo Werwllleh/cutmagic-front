@@ -1,7 +1,7 @@
 'use client';
 import React from 'react';
-import {INSTAGRAM, MAP_PLACE, PHONE, VK} from "@/app/(frontend)/consts";
-import {normalizePhone} from "@/app/(frontend)/utils";
+import {INSTAGRAM, MAP_PLACE, PHONE, VK} from "@/consts";
+import {normalizePhone} from "@/utils";
 import {MapProvider} from "@/providers/map-provider";
 import CustomMap from "@/components/custom-map";
 

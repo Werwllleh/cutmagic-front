@@ -1,6 +1,6 @@
 "use client";
 
-import {MAP_PLACE, MAP_PLACE_COMPANY, MAP_PLACE_MARKER, MAP_PLACE_ROUTE} from "@/app/(frontend)/consts";
+import {MAP_PLACE, MAP_PLACE_COMPANY, MAP_PLACE_MARKER, MAP_PLACE_ROUTE} from "@/consts";
 import {YMap} from "@yandex/ymaps3-types/imperative/YMap";
 import {useRef} from "react";
 import {useMap} from "@/providers/map-provider";

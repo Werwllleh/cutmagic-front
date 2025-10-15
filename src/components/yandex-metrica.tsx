@@ -3,8 +3,8 @@
 import React, {useEffect} from 'react';
 import {usePathname, useSearchParams} from "next/navigation";
 import Script from "next/script";
-import {ymReach} from "@/app/(frontend)/utils";
-import {YM_METHOD} from "@/app/(frontend)/consts";
+import {ymReach} from "@/utils";
+import {YM_METHOD} from "@/consts";
 
 const base = "https://cutmagic.ru";
 

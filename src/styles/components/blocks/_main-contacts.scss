@@ -5,13 +5,6 @@
 
   &__container {
 
-    @include breakpoints.tablet {
-      padding-inline: 5rem;
-    }
-
-    @include breakpoints.desktop-normal {
-      padding-inline: 8rem;
-    }
   }
 
   &__list {

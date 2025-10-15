@@ -14,7 +14,16 @@ export const Media: CollectionConfig = {
   ],
   upload: {
     staticDir: process.env.STATIC_DIR,
-    mimeTypes: ['image/jpeg', 'image/jpg', 'image/png', 'image/webp'],
+    mimeTypes: [
+      'image/jpeg',
+      'image/jpg',
+      'image/png',
+      'image/webp',
+      'video/mp4',
+      'video/MOV',
+      'video/webm',
+      'video/ogg',
+    ],
 
     // 🔧 Основные параметры для всех загружаемых файлов
     formatOptions: {

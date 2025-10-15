@@ -8,7 +8,8 @@ import sharp from 'sharp'
 
 import { Users } from './collections/Users'
 import { Media } from './collections/Media'
-import {MainSeoBlock} from "@/globals/Main-seo-block";
+import {MainSeoBlock} from "@/globals/MainSeoBlock";
+import {AboutCompany} from "@/globals/AboutCompany";
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -21,7 +22,7 @@ export default buildConfig({
     },
   },
   collections: [Users, Media],
-  globals: [MainSeoBlock],
+  globals: [MainSeoBlock, AboutCompany],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {
