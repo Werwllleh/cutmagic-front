@@ -4,6 +4,7 @@ import React, {ReactNode, Suspense} from "react";
 import Footer from "@/components/footer";
 import Header from "@/components/header";
 import YandexMetrica from "@/components/yandex-metrica";
+import PromoModal from "@/components/promo-modal";
 
 
 export default function RootLayout({children,}: Readonly<{ children: ReactNode; }>) {
@@ -49,6 +50,7 @@ export default function RootLayout({children,}: Readonly<{ children: ReactNode; 
         </Suspense>
       </main>
       <Footer/>
+      <PromoModal />
     </MainProvider>
     </body>
     </html>

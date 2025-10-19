@@ -15,11 +15,15 @@ const Footer = () => {
   }>({})
 
   useEffect(() => {
-    setFooterInfo({
-      phone: companyData?.contactType.find((i: ContactTypeObject) => i.type === 'phone'),
-      timing: companyData?.contactType.find((i: ContactTypeObject) => i.type === 'timing'),
-    })
-  }, [companyData]);
+
+    if (companyData && !isLoading && !isError) {
+      setFooterInfo({
+        phone: companyData?.contactType.find((i: ContactTypeObject) => i.type === 'phone'),
+        timing: companyData?.contactType.find((i: ContactTypeObject) => i.type === 'timing'),
+      })
+    }
+
+  }, [companyData, isLoading, isError]);
 
   return (
     <footer className="footer">

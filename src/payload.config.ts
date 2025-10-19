@@ -10,6 +10,7 @@ import { Users } from './collections/Users'
 import { Media } from './collections/Media'
 import {MainSeoBlock} from "@/globals/MainSeoBlock";
 import {AboutCompany} from "@/globals/AboutCompany";
+import {PromoModal} from "@/globals/PromoModal";
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -22,7 +23,7 @@ export default buildConfig({
     },
   },
   collections: [Users, Media],
-  globals: [MainSeoBlock, AboutCompany],
+  globals: [MainSeoBlock, AboutCompany, PromoModal],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {

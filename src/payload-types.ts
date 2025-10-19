@@ -87,10 +87,12 @@ export interface Config {
   globals: {
     'main-seo-block': MainSeoBlock;
     'about-company': AboutCompany;
+    'promo-modal': PromoModal;
   };
   globalsSelect: {
     'main-seo-block': MainSeoBlockSelect<false> | MainSeoBlockSelect<true>;
     'about-company': AboutCompanySelect<false> | AboutCompanySelect<true>;
+    'promo-modal': PromoModalSelect<false> | PromoModalSelect<true>;
   };
   locale: null;
   user: User & {
@@ -364,6 +366,63 @@ export interface AboutCompany {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "promo-modal".
+ */
+export interface PromoModal {
+  id: number;
+  show?: boolean | null;
+  title: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  description?: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  discount?: number | null;
+  delay?: number | null;
+  disclaimer?: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "main-seo-block_select".
  */
 export interface MainSeoBlockSelect<T extends boolean = true> {
@@ -399,6 +458,21 @@ export interface AboutCompanySelect<T extends boolean = true> {
         link?: T;
         id?: T;
       };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "promo-modal_select".
+ */
+export interface PromoModalSelect<T extends boolean = true> {
+  show?: T;
+  title?: T;
+  description?: T;
+  discount?: T;
+  delay?: T;
+  disclaimer?: T;
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;
